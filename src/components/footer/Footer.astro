@@ -1,0 +1,46 @@
+---
+import { ThemeSwitch } from './ThemeSwitch'
+import { siteConfig } from '@/config'
+import { getAllPostsWordCount } from '@utils/content'
+import { RunningDays } from './RunningDays'
+import { Link } from './Link'
+
+const sinceYear = new Date(siteConfig.startTime).getFullYear()
+const thisYear = new Date().getFullYear()
+const copyDate = sinceYear === thisYear ? thisYear : `${sinceYear} - ${thisYear}`
+
+const wordCount = await getAllPostsWordCount()
+
+const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
+---
+
+<footer
+  class="relative z-1 py-8 px-4 md:px-8 border-t border-zinc-200 dark:border-zinc-700 text-base/80 text-sm"
+>
+  <div class="text-center space-y-2">
+    <div>
+      Powered by
+      <Link href="https://astro.build/">Astro</Link>
+      & Designed by
+      <Link href="https://github.com/lxchapu/astr-gyoza">Gyoza</Link>
+    </div>
+    <div>
+      <span>
+        &copy;{copyDate}
+        <Link href="/">{siteConfig.author}</Link>.
+      </span>
+      <span class="select-none opacity-50">|</span>
+      <Link href="/rss.xml">RSS</Link>
+      <span class="select-none opacity-50">|</span>
+      <Link href="/sitemap-index.xml">站点地图</Link>
+    </div>
+    <div>
+      <RunningDays client:only="react" />
+      <span class="select-none opacity-50">|</span>
+      <span>共嘚嘚了 {wordCountStr} 字</span>
+    </div>
+  </div>
+  <div class="mt-4 flex justify-center">
+    <ThemeSwitch client:only="react" />
+  </div>
+</footer>

@@ -1,0 +1,65 @@
+.prose :not(pre) > code {
+  @apply px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-sm;
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+.prose a {
+  @apply no-underline text-accent hover:underline underline-offset-2 decoration-dashed;
+}
+
+.prose .code-block {
+  @apply bg-zinc-100 dark:bg-zinc-800 relative rounded-lg mt-10 mb-6;
+}
+
+.prose .lang-tag {
+  @apply absolute right-6 -top-6 h-6 px-4 flex items-center rounded-t-lg bg-inherit text-sm;
+}
+
+.prose pre {
+  min-height: 60px;
+  max-height: 450px;
+  @apply my-0 px-6 py-4 bg-transparent text-sm leading-relaxed;
+}
+
+.prose table {
+  @apply w-auto;
+}
+
+.prose img {
+  min-height: 80px;
+  min-width: 80px;
+  @apply rounded-lg bg-zinc-100 dark:bg-zinc-800;
+}
+
+.prose figure {
+  @apply flex flex-col items-center;
+}
+
+.prose .heading-anchor {
+  @apply ml-1 opacity-0 hover:no-underline;
+}
+
+.prose .heading:hover .heading-anchor {
+  @apply opacity-100;
+}
+
+.prose iframe {
+  @apply rounded-lg w-full bg-zinc-100 dark:bg-zinc-800;
+}
+
+.prose iframe.codepen {
+  min-height: 450px;
+}
+
+.prose iframe.video {
+  @apply aspect-video;
+}
+
+.prose hr {
+  max-width: 100px;
+  @apply mx-auto;
+}

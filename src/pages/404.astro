@@ -1,0 +1,18 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { Flashlight } from '@components/Flashlight'
+---
+
+<Layout title="404">
+  <div class="max-w-[800px] mx-auto py-16 px-4 md:px-8">
+    <h1 class="text-[4rem] md:text-[9rem] leading-tight font-bold">Not Found</h1>
+    <p class="text-3xl mb-24 text-gray-800/90 dark:text-gray-200/90">
+      对不起，这个链接坏了。可能有些东西被删除，或者被移动了。无论如何，这里没什么可看的。
+    </p>
+    <a class="text-accent text-xl md:text-2xl inline-flex" href="/"
+      ><i class="iconfont icon-arrow-left-up"></i>
+      <span class="ml-2">传送回首页</span></a
+    >
+  </div>
+  <Flashlight client:only="react" />
+</Layout>

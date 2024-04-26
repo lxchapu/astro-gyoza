@@ -1,0 +1,45 @@
+---
+import { slugify } from '@utils/content'
+
+interface Props {
+  tags: string[]
+  category?: string
+  class?: string
+}
+
+const { tags, category, class: className } = Astro.props
+---
+
+<div class="flex flex-wrap gap-2 text-sm text-base/60" class:list={[className]}>
+  {
+    category && (
+      <div>
+        <i class="iconfont icon-folder" />
+        <a
+          class="hover:text-accent hover:underline underline-offset-2 decoration-dashed"
+          href={`/category/${slugify(category)}`}
+        >
+          {category}
+        </a>
+      </div>
+    )
+  }
+  {
+    tags.length > 0 && (
+      <div>
+        <i class="iconfont icon-tag" />
+        {tags.map((tag, index) => (
+          <>
+            {index > 0 && <span>, </span>}
+            <a
+              class="hover:text-accent hover:underline underline-offset-2 decoration-dashed"
+              href={`/tags/${slugify(tag)}`}
+            >
+              {tag}
+            </a>
+          </>
+        ))}
+      </div>
+    )
+  }
+</div>

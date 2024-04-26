@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  friends: CollectionEntry<'friends'>[]
+}
+
+const { friends } = Astro.props
+---
+
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+  {
+    friends.map((friend) => (
+      <li>
+        <a href={friend.data.link} target="_blank" rel="noopener noreferrer external">
+          <div class="p-4 flex gap-2 bg-accent/10 rounded-lg group">
+            <img
+              class="shrink-0 size-16 object-contain rounded-full"
+              src={friend.data.avatar}
+              alt={`Friend avatar: ${friend.data.title}`}
+              loading="lazy"
+            />
+            <div class="min-w-0 grow">
+              <div class="truncate font-bold text-xl group-hover:text-accent">{friend.data.title}</div>
+              <div class="text-sm line-clamp-2">{friend.data.description}</div>
+            </div>
+            <i class="shrink-0 iconfont icon-external-link group-hover:text-accent" />
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>

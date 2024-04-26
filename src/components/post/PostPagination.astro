@@ -1,0 +1,48 @@
+---
+interface Props {
+  current: number
+  total: number
+  getPageUrl: (page: number) => string
+}
+
+const { current, total, getPageUrl } = Astro.props
+
+const items = []
+if (current > 1) items.push({ isButton: true, page: current - 1, icon: 'left', label: '上一页' })
+if (current > 1) items.push({ isButton: true, page: 1 })
+if (current > 3) items.push({ isButton: false, icon: 'dot' })
+if (current > 2) items.push({ isButton: true, page: current - 1 })
+items.push({ isButton: false, page: current })
+if (current < total - 1) items.push({ isButton: true, page: current + 1 })
+if (current < total - 2) items.push({ isButton: false, icon: 'dot' })
+if (current < total) items.push({ isButton: true, page: total })
+if (current < total)
+  items.push({ isButton: true, page: current + 1, icon: 'right', label: '下一页' })
+---
+
+<div class="mt-12 flex items-center justify-center gap-2">
+  {
+    items.map((item) => {
+      if (item.isButton) {
+        return (
+          <a
+            class="size-8 rounded-lg flex items-center justify-center transition-bg-color duration-200  hover:bg-accent/20 select-none"
+            href={getPageUrl(item.page!)}
+            aria-label={item.label}
+          >
+            {item.icon ? <i class={`iconfont icon-${item.icon}`} /> : item.page}
+          </a>
+        )
+      } else {
+        return (
+          <span
+            class="size-8 rounded-lg flex items-center justify-center cursor-default select-none"
+            class:list={[{ 'text-white bg-accent dark:text-black': item.page === current }]}
+          >
+            {item.icon ? <i class={`iconfont icon-${item.icon}`} /> : item.page}
+          </span>
+        )
+      }
+    })
+  }
+</div>

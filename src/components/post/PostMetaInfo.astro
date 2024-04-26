@@ -1,0 +1,29 @@
+---
+import { RelativeDate } from './RelativeDate'
+
+interface Props {
+  date: Date
+  lastMod?: Date
+  words: number
+  readingMinutes: number
+  class?: string
+}
+
+const { date, lastMod, words, readingMinutes, class: className } = Astro.props
+---
+
+<div class="flex flex-wrap gap-2 text-sm text-base/60" class:list={[className]}>
+  <div>
+    <i class="iconfont icon-calendar"></i>
+    <RelativeDate date={date} client:idle />
+    {lastMod && <span class="text-xs">(已编辑)</span>}
+  </div>
+  <div>
+    <i class="iconfont icon-chart-box"></i>
+    <span>{words} 字</span>
+  </div>
+  <div>
+    <i class="iconfont icon-timer"></i>
+    <span>{Math.ceil(readingMinutes)} 分钟</span>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { PostCardHoverOverlay } from './PostCardHoverOverlay'
+import PostMetaInfo from './PostMetaInfo.astro'
+
+interface Props {
+  entry: CollectionEntry<'posts'>
+}
+
+const { entry } = Astro.props
+
+const { remarkPluginFrontmatter } = await entry.render()
+---
+
+<a class="block relative py-8 focus-visible:outline-0" href={`/posts/${entry.slug}`}>
+  <PostCardHoverOverlay client:only="react" />
+  <h2 class="relative text-2xl font-bold">
+    {entry.data.title}
+    {
+      entry.data.sticky > 0 && (
+        <i class="absolute right-0 top-0 z-10 size-6 leading-none iconfont icon-pin text-red-500" />
+      )
+    }
+  </h2>
+  <div class="mt-4 overflow-hidden">
+    {
+      entry.data.cover && (
+        <img
+          class="float-right ml-3 mb-2 size-[80px] rounded-md object-cover select-none"
+          src={entry.data.cover}
+          alt={entry.data.title}
+          loading="lazy"
+        />
+      )
+    }
+    {
+      entry.data.summary && (
+        <p class="text-gray-800/90 dark:text-gray-200/90">{entry.data.summary}</p>
+      )
+    }
+  </div>
+  <div class="mt-2 flex flex-wrap items-center justify-end gap-4 select-none">
+    <PostMetaInfo
+      class="grow"
+      date={entry.data.date}
+      lastMod={entry.data.lastMod}
+      words={remarkPluginFrontmatter.words}
+      readingMinutes={remarkPluginFrontmatter.readingMinutes}
+    />
+    <div class="group shrink-0 text-accent flex items-center gap-2">
+      <span>继续阅读</span>
+      <svg width="36" height="12" viewBox="0 0 36 12" fill="none" class="stroke-current">
+        <path
+          d="M0.75 6H11.25 M6 0.75L11.25 6L6 11.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+        <path
+          d="M15 10L19.5 5.5L15 1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="delay-100 opacity-0 group-hover:opacity-100"></path>
+        <path
+          d="M23 10L27.5 5.5L23 1"
+          stroke-opacity="0.66"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="delay-200 opacity-0 group-hover:opacity-100"></path>
+        <path
+          d="M31 10L35.5 5.5L31 1"
+          stroke-opacity="0.35"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="delay-300 opacity-0 group-hover:opacity-100"></path>
+      </svg>
+    </div>
+  </div>
+</a>

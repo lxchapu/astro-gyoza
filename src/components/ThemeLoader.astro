@@ -1,0 +1,17 @@
+<script>
+  import { getLocalTheme, getSystemTheme, changePageTheme } from '@utils/theme'
+
+  function load() {
+    const localTheme = getLocalTheme()
+    const systemTheme = getSystemTheme()
+    if (localTheme === 'system') {
+      changePageTheme(systemTheme)
+    } else {
+      changePageTheme(localTheme)
+    }
+  }
+
+  load()
+
+  document.addEventListener('astro:after-swap', load)
+</script>

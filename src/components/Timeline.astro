@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getShortDate } from '@/utils/date'
+
+interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+
+const { posts } = Astro.props
+
+const groupedPosts = posts.reduce<
+  {
+    year: number
+    posts: CollectionEntry<'posts'>[]
+  }[]
+>((acc, cur) => {
+  const year = cur.data.date.getFullYear()
+  const lastYearGroup = acc[acc.length - 1]
+  if (lastYearGroup && lastYearGroup.year === year) {
+    lastYearGroup.posts.push(cur)
+  } else {
+    acc.push({
+      year,
+      posts: [cur],
+    })
+  }
+  return acc
+}, [])
+---
+
+<section>
+  {
+    groupedPosts.map((year) => (
+      <div class="relative py-10">
+        <h3
+          class="absolute -top-3 -left-8 text-[7rem] text-transparent leading-none font-bold pointer-events-none select-none font-['Atkinson']"
+          style="-webkit-text-stroke: 2px rgb(var(--base-content) / 0.1);"
+        >
+          {year.year}
+        </h3>
+        <ul class="space-y-4">
+          {year.posts.map((post) => (
+            <li class="flex items-baseline space-x-2">
+              <span class="shrink-0 text-gray-600 dark:text-gray-300 text-sm">
+                {getShortDate(post.data.date)}
+              </span>
+              <a
+                class="hover:text-accent/80 hover:underline underline-offset-2"
+                href={`/posts/${post.slug}`}
+              >
+                {post.data.title}
+              </a>
+              {post.data.sticky > 0 && <i class="iconfont icon-pin text-red-500" />}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</section>

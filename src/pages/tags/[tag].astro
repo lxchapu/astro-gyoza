@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getAllTags, getOldestPosts, slugify } from '@utils/content'
+import PageLayout from '@layouts/PageLayout.astro'
+import Timeline from '@components/Timeline.astro'
+import Highlight from '@components/Highlight.astro'
+
+export const getStaticPaths = (async () => {
+  const allTags = await getAllTags()
+
+  return allTags.map((tag) => {
+    return {
+      params: {
+        tag: tag.slug,
+      },
+      props: { tag },
+    }
+  })
+}) satisfies GetStaticPaths
+
+interface Props {
+  tag: {
+    name: string
+    slug: string
+    count: number
+  }
+}
+
+const { tag } = Astro.props
+
+const oldestPosts = await getOldestPosts().then((posts) => {
+  return posts.filter((post) => post.data.tags.findIndex((t) => slugify(t) === tag.slug) >= 0)
+})
+---
+
+<PageLayout title={`标签 · ${tag.name}`}>
+  <div class="max-w-[800px] mx-auto px-4 py-16">
+    <header class="space-y-4 mb-8">
+      <h1 class="text-4xl font-bold">
+        标签：<Highlight>{tag.name}</Highlight>
+      </h1>
+      <p>共有 {tag.count} 篇文章。</p>
+    </header>
+    <Timeline posts={oldestPosts} />
+  </div>
+</PageLayout>
