@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useAtom } from 'jotai'
 import { searchPanelOpenAtom } from '@/store/searchPanel'
 import { useState } from 'react'
-import Fuse from 'fuse.js'
 
 export function SearchPanel({ zIndex = 999 }: { zIndex?: number }) {
   const [isOpen, setIsOpen] = useAtom(searchPanelOpenAtom)
