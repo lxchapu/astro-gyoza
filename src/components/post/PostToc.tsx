@@ -2,7 +2,7 @@ import { pageScrollLocationAtom } from '@/store/scrollInfo'
 import type { MarkdownHeading } from 'astro'
 import clsx from 'clsx'
 import { useAtomValue } from 'jotai'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function useActiveItem() {
   const [activeItem, setActiveItem] = useState('')
@@ -63,18 +63,8 @@ export function TocItem({
   depth: number
   isActive: boolean
 }) {
-  const ref = useRef<HTMLLIElement>(null)
-
-  useEffect(() => {
-    if (!ref.current || !isActive) return
-    const $parent = ref.current.parentNode as HTMLLIElement
-    if (!$parent) return
-
-    $parent.scrollTop = ref.current.offsetTop - $parent.offsetTop
-  }, [isActive])
-
   return (
-    <li ref={ref} className="text-sm relative">
+    <li className="text-sm relative">
       <span
         className={clsx(
           'absolute left-0 top-2 h-1 rounded-full',
