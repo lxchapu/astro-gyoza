@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths } from 'astro'
-import { getAllTags, getOldestPosts, slugify } from '@utils/content'
-import PageLayout from '@layouts/PageLayout.astro'
-import Timeline from '@components/Timeline.astro'
-import Highlight from '@components/Highlight.astro'
+import { getAllTags, getOldestPosts, slugify } from '@/utils/content'
+import PageLayout from '@/layouts/PageLayout.astro'
+import Timeline from '@/components/Timeline.astro'
+import Highlight from '@/components/Highlight.astro'
 
 export const getStaticPaths = (async () => {
   const allTags = await getAllTags()

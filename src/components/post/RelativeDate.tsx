@@ -1,4 +1,4 @@
-import { getRelativeTime, getFormattedDate } from '@utils/date'
+import { getRelativeTime, getFormattedDate } from '@/utils/date'
 import { useEffect, useState } from 'react'
 
 export function RelativeDate({ date }: { date: Date }) {

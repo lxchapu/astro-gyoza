@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai'
 import { useEffect } from 'react'
-import { getSystemTheme, changePageTheme, setLocalTheme } from '@utils/theme'
+import { getSystemTheme, changePageTheme, setLocalTheme } from '@/utils/theme'
 import { themeAtom } from '@/store/theme'
 
 export function ThemeProvider() {

@@ -1,11 +1,11 @@
 ---
-import MarkdownLayout from '@layouts/MarkdownLayout.astro'
+import MarkdownLayout from '@/layouts/MarkdownLayout.astro'
 import { getEntry } from 'astro:content'
-import Highlight from '@components/Highlight.astro'
-import SectionBlock from '@components/SectionBlock.astro'
-import { PostToc } from '@components/post/PostToc'
-import MarkdownWrapper from '@components/MarkdownWrapper.astro'
-import { ReadingProgress } from '@components/post/ReadingProgress'
+import Highlight from '@/components/Highlight.astro'
+import SectionBlock from '@/components/SectionBlock.astro'
+import { PostToc } from '@/components/post/PostToc'
+import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
+import { ReadingProgress } from '@/components/post/ReadingProgress'
 
 const md = await getEntry('spec', 'about')
 

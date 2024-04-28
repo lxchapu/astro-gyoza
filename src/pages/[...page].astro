@@ -1,13 +1,13 @@
 ---
 import type { GetStaticPaths } from 'astro'
-import PageLayout from '@layouts/PageLayout.astro'
-import PostList from '@components/post/PostList.astro'
-import PostPagination from '@components/post/PostPagination.astro'
-import { getSortedPosts, getHotTags, getAllCategories, getAllTags } from '@utils/content'
+import PageLayout from '@/layouts/PageLayout.astro'
+import PostList from '@/components/post/PostList.astro'
+import PostPagination from '@/components/post/PostPagination.astro'
+import { getSortedPosts, getHotTags, getAllCategories, getAllTags } from '@/utils/content'
 import { siteConfig } from '@/config'
-import SectionBlock from '@components/SectionBlock.astro'
-import TagList from '@components/TagList.astro'
-import CategoryList from '@components/CategoryList.astro'
+import SectionBlock from '@/components/SectionBlock.astro'
+import TagList from '@/components/TagList.astro'
+import CategoryList from '@/components/CategoryList.astro'
 import type { CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = (async () => {

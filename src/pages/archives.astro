@@ -1,9 +1,9 @@
 ---
-import Timeline from '@components/Timeline.astro'
-import Highlight from '@components/Highlight.astro'
-import PageLayout from '@layouts/PageLayout.astro'
-import { getOldestPosts } from '@utils/content'
-import { TimelineProgress } from '@components/TimelineProgress'
+import Timeline from '@/components/Timeline.astro'
+import Highlight from '@/components/Highlight.astro'
+import PageLayout from '@/layouts/PageLayout.astro'
+import { getOldestPosts } from '@/utils/content'
+import { TimelineProgress } from '@/components/TimelineProgress'
 
 const oldestPosts = await getOldestPosts()
 ---

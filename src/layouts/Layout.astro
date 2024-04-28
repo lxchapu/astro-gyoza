@@ -1,10 +1,10 @@
 ---
-import CommonHead from '@components/CommonHead.astro'
-import AccentColorInjector from '@components/AccentColorInjector.astro'
-import ThemeLoader from '@components/ThemeLoader.astro'
+import CommonHead from '@/components/CommonHead.astro'
+import AccentColorInjector from '@/components/AccentColorInjector.astro'
+import ThemeLoader from '@/components/ThemeLoader.astro'
 import { ViewTransitions } from 'astro:transitions'
 import { siteConfig } from '@/config'
-import '@styles/global.css'
+import '@/styles/global.css'
 
 interface Props {
   title?: string

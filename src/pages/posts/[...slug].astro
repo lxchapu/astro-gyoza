@@ -1,16 +1,16 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import type { GetStaticPaths } from 'astro'
-import MarkdownLayout from '@layouts/MarkdownLayout.astro'
-import { getSortedPosts } from '@utils/content'
-import MarkdownWrapper from '@components/MarkdownWrapper.astro'
-import SectionBlock from '@components/SectionBlock.astro'
-import { PostToc } from '@components/post/PostToc'
-import PostMetaInfo from '@components/post/PostMetaInfo.astro'
-import PostArchiveInfo from '@components/post/PostArchiveInfo.astro'
-import { ReadingProgress } from '@components/post/ReadingProgress'
-import { Outdate } from '@components/post/Outdate'
-import PostNav from '@components/post/PostNav.astro'
+import MarkdownLayout from '@/layouts/MarkdownLayout.astro'
+import { getSortedPosts } from '@/utils/content'
+import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
+import SectionBlock from '@/components/SectionBlock.astro'
+import { PostToc } from '@/components/post/PostToc'
+import PostMetaInfo from '@/components/post/PostMetaInfo.astro'
+import PostArchiveInfo from '@/components/post/PostArchiveInfo.astro'
+import { ReadingProgress } from '@/components/post/ReadingProgress'
+import { Outdate } from '@/components/post/Outdate'
+import PostNav from '@/components/post/PostNav.astro'
 
 export const getStaticPaths = (async () => {
   const sortedPosts = await getSortedPosts()

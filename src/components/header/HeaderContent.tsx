@@ -8,7 +8,7 @@ import {
   useShouldHeaderMenuBgShow,
   useShouldHeaderMetaShow,
 } from './hooks'
-import { RootPortal } from '@components/RootPortal'
+import { RootPortal } from '@/components/RootPortal'
 
 export function HeaderContent() {
   return (
