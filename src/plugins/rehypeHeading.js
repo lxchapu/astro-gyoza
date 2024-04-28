@@ -18,7 +18,7 @@ export function rehypeHeading() {
             href: `#${node.properties.id}`,
             class: 'heading-anchor',
           },
-          h('i', { class: 'iconfont icon-tag' }),
+          h('i', { class: 'iconfont icon-link' }),
         )
         node.children.push(link)
         node.properties = {
