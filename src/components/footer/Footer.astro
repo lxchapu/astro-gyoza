@@ -3,7 +3,7 @@ import { ThemeSwitch } from './ThemeSwitch'
 import { siteConfig } from '@/config'
 import { getAllPostsWordCount } from '@/utils/content'
 import { RunningDays } from './RunningDays'
-import { Link } from './Link'
+import Link from './Link.astro'
 
 const sinceYear = new Date(siteConfig.startTime).getFullYear()
 const thisYear = new Date().getFullYear()
@@ -24,15 +24,16 @@ const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
       & Designed by
       <Link href="https://github.com/lxchapu/astro-gyoza">Gyoza</Link>
     </div>
-    <div>
-      <span>
-        &copy;{copyDate}
-        <Link href="/">{siteConfig.author}</Link>.
-      </span>
-      <span class="select-none opacity-50">|</span>
-      <Link href="/rss.xml">RSS</Link>
-      <span class="select-none opacity-50">|</span>
-      <Link href="/sitemap-index.xml">站点地图</Link>
+    <div class="space-x-1">
+      <span>&copy;{copyDate} <Link href="/">{siteConfig.author}</Link>.</span>
+      <Link href="/rss.xml">
+        <i class="iconfont icon-rss"></i>
+        <span>RSS</span>
+      </Link>
+      <Link href="/sitemap-index.xml">
+        <i class="iconfont icon-map"></i>
+        <span>站点地图</span>
+      </Link>
     </div>
     <div>
       <RunningDays client:only="react" />
