@@ -1,19 +1,21 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
-import { getCollection } from 'astro:content'
+import { getCollection, getEntry } from 'astro:content'
 import ProjectList from '@/components/ProjectList.astro'
 import Highlight from '@/components/Highlight.astro'
 
 const projects = await getCollection('projects')
+
+const md = await getEntry('spec', 'projects')
 ---
 
-<PageLayout title="项目">
+<PageLayout title={md.data.title} description={md.data.description}>
   <div class="max-w-[800px] mx-auto px-4 py-16">
     <header class="space-y-4 mb-8">
       <h1 class="text-4xl font-bold">
-        <Highlight>项目</Highlight>
+        <Highlight>{md.data.title}</Highlight>
       </h1>
-      <p>这些是我创建或参与的项目，如果你感兴趣不妨去给个 Star。</p>
+      <p>{md.data.description}</p>
     </header>
     <ProjectList projects={projects} />
   </div>

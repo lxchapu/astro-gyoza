@@ -24,7 +24,7 @@ const { headings, Content } = await md.render()
   >
     <header class="space-y-4 mb-8">
       <h1 class="text-4xl font-bold">
-        你好，我是<Highlight>{md.data.name}</Highlight>👋。
+        <Highlight>{md.data.title}</Highlight>
       </h1>
       <p>{md.data.description}</p>
     </header>

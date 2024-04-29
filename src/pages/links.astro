@@ -1,20 +1,28 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
-import { getCollection } from 'astro:content'
+import { getCollection, getEntry } from 'astro:content'
 import Highlight from '@/components/Highlight.astro'
 import FrinedList from '@/components/FrinedList.astro'
+import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
 
 const friends = await getCollection('friends')
+
+const md = await getEntry('spec', 'links')
+
+const { Content } = await md.render()
 ---
 
-<PageLayout title="友链">
-  <div class="max-w-[800px] mx-auto px-4 py-16">
-    <header class="space-y-4 mb-8">
+<PageLayout title={md.data.title} description={md.data.description}>
+  <div class="max-w-[800px] mx-auto px-4 py-16 space-y-8">
+    <header class="space-y-4">
       <h1 class="text-4xl font-bold">
-        <Highlight>朋友们</Highlight>
+        <Highlight>{md.data.title}</Highlight>
       </h1>
-      <p>我的小伙伴们和那些有趣的站点。</p>
+      <p>{md.data.description}</p>
     </header>
     <FrinedList friends={friends} />
+    <MarkdownWrapper>
+      <Content />
+    </MarkdownWrapper>
   </div>
 </PageLayout>
