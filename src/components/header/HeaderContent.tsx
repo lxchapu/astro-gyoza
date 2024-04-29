@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { headerConfig } from '@/config'
+import { menus } from '@/config'
 import { clsx } from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
@@ -84,11 +84,12 @@ function HeaderMenu({ isBgShow }: { isBgShow: boolean }) {
         aria-hidden
       ></div>
       <div className="text-sm px-4 flex">
-        {headerConfig.menu.map((menu) => (
+        {menus.map((menu) => (
           <HeaderMenuItem
-            key={menu.title}
+            key={menu.name}
             href={menu.link}
-            title={menu.title}
+            title={menu.name}
+            icon={menu.icon}
             isActive={pathName === menu.link}
           />
         ))}
@@ -101,19 +102,30 @@ function HeaderMenuItem({
   href,
   isActive,
   title,
+  icon,
 }: {
   href: string
   isActive: boolean
   title: string
+  icon: string
 }) {
   return (
     <a
-      className={clsx('relative px-4 py-1.5', isActive ? 'text-accent' : 'hover:text-accent')}
+      className={clsx('relative block px-4 py-1.5', isActive ? 'text-accent' : 'hover:text-accent')}
       href={href}
     >
-      <span>{title}</span>
+      <div className="flex space-x-2">
+        {isActive && (
+          <motion.i
+            className={clsx('iconfont', icon)}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          ></motion.i>
+        )}
+        <span>{title}</span>
+      </div>
       {isActive && (
-        <span className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"></span>
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"></div>
       )}
     </a>
   )

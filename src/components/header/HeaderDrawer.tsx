@@ -1,7 +1,38 @@
-import { headerConfig } from '@/config'
+import { menus } from '@/config'
 import { createContext, useContext, useState, forwardRef } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { motion, AnimatePresence } from 'framer-motion'
+import clsx from 'clsx'
+
+const contentVariants = {
+  hidden: {
+    x: '-100%',
+    transition: {
+      duration: 0.2,
+      ease: 'easeOut',
+    },
+  },
+  visible: {
+    x: 0,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+      duration: 0.2,
+      ease: 'easeOut',
+    },
+  },
+}
+
+const menuItemVariants = {
+  hidden: {
+    opacity: 0,
+    x: '-100%',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+  },
+}
 
 export function HeaderDrawer({ zIndex = 999 }: { zIndex?: number }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,17 +54,18 @@ export function HeaderDrawer({ zIndex = 999 }: { zIndex?: number }) {
                 style={{ zIndex: overlayZIndex }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { delay: 0.1 } }}
               ></motion.div>
             </Dialog.Overlay>
 
             <Dialog.Content asChild>
               <motion.div
-                className="fixed left-0 inset-y-0 h-full bg-base rounded-r-lg p-4 flex flex-col justify-center"
-                style={{ zIndex: contentZIndex, width: 'min(180px, 80%)' }}
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
+                className="fixed left-0 inset-y-0 h-full bg-base rounded-r-lg p-4 flex flex-col justify-center w-[260px] max-w-[80%]"
+                style={{ zIndex: contentZIndex }}
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
               >
                 <DrawerContext.Provider
                   value={{
@@ -70,13 +102,14 @@ function DrawerContentImpl() {
   const { dismiss } = useContext(DrawerContext)
 
   return (
-    <ul className="mt-8 pb-8 overflow-y-auto min-h-0">
-      {headerConfig.menu.map((menu) => (
-        <li key={menu.title}>
-          <a className="inline-block p-2" href={menu.link} onClick={dismiss}>
-            {menu.title}
+    <ul className="mt-8 pb-8 overflow-y-auto overflow-x-hidden min-h-0">
+      {menus.map((menu) => (
+        <motion.li key={menu.name} variants={menuItemVariants}>
+          <a className="inline-flex p-2 space-x-4" href={menu.link} onClick={dismiss}>
+            <i className={clsx('iconfont', menu.icon)}></i>
+            <span>{menu.name}</span>
           </a>
-        </li>
+        </motion.li>
       ))}
     </ul>
   )

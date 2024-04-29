@@ -9,30 +9,33 @@ export const siteConfig = {
   twitterId: '@lxchapu',
 }
 
-export const headerConfig = {
-  menu: [
-    {
-      title: '首页',
-      link: '/',
-    },
-    {
-      title: '归档',
-      link: '/archives',
-    },
-    {
-      title: '项目',
-      link: '/projects',
-    },
-    {
-      title: '关于',
-      link: '/about',
-    },
-    {
-      title: '友链',
-      link: '/links',
-    },
-  ],
-}
+export const menus = [
+  {
+    name: '首页',
+    link: '/',
+    icon: 'icon-pantone',
+  },
+  {
+    name: '归档',
+    link: '/archives',
+    icon: 'icon-archive',
+  },
+  {
+    name: '项目',
+    link: '/projects',
+    icon: 'icon-flask',
+  },
+  {
+    name: '关于',
+    link: '/about',
+    icon: 'icon-ghost',
+  },
+  {
+    name: '友链',
+    link: '/links',
+    icon: 'icon-hearts',
+  },
+]
 
 export const docSearchConfig = {
   appId: '',
