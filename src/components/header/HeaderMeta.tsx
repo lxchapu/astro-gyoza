@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config'
+import { site } from '@/config.json'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useHeaderMetaInfo, useShouldHeaderMetaShow } from './hooks'
 
@@ -32,7 +32,7 @@ export function HeaderMeta() {
           </div>
           <div className="hidden md:block min-w-0 text-right">
             <div className="text-gray-600/60 dark:text-gray-300/60 text-xs truncate">{slug}</div>
-            <div className="text-gray-600 dark:text-gray-300">{siteConfig.title}</div>
+            <div className="text-gray-600 dark:text-gray-300">{site.title}</div>
           </div>
         </motion.div>
       )}

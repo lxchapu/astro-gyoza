@@ -1,0 +1,33 @@
+---
+import { hero, author } from '@/config.json'
+import { SocialList } from './SocialList'
+import Highlight from '@/components/Highlight.astro'
+---
+
+<div class="lg:h-dvh -mt-16">
+  <div
+    class="relative max-w-[1100px] mx-auto h-full px-4 grid lg:grid-cols-2 items-center justify-items-center"
+  >
+    <div class="mt-[120px] lg:mt-0 max-w-[590px]">
+      <h1 class="text-3xl text-center lg:text-left">
+        Hi there, I'm <Highlight class="font-bold">{hero.name}</Highlight>👋<br />{hero.bio}
+      </h1>
+      <div class="text-sm mt-3 text-center lg:text-left">{hero.description}</div>
+      <SocialList className="mt-[60px]" client:load />
+    </div>
+    <div class="mt-20 lg:mt-0">
+      <div
+        class="size-[200px] lg:size-[300px] rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800"
+      >
+        <img class="size-full" src={author.avatar} alt="Site owner avatar" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-0 lg:absolute inset-x-0 bottom-0 flex flex-col items-center">
+      <p class="text-xs text-center">当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。</p>
+      <div class="mt-7 text-xl animate-bounce">
+        <i class="iconfont icon-down"></i>
+      </div>
+    </div>
+  </div>
+</div>

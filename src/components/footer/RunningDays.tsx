@@ -1,12 +1,12 @@
 import { useLayoutEffect, useState } from 'react'
-import { siteConfig } from '@/config'
+import { footer } from '@/config.json'
 import { getDiffInDays } from '@/utils/date'
 
 export function RunningDays() {
   const [days, setDays] = useState(0)
 
   useLayoutEffect(() => {
-    const diffDays = getDiffInDays(new Date(siteConfig.startTime))
+    const diffDays = getDiffInDays(new Date(footer.startTime))
     setDays(diffDays)
   }, [])
 

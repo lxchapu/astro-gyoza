@@ -4,15 +4,16 @@ import PageLayout from '@/layouts/PageLayout.astro'
 import PostList from '@/components/post/PostList.astro'
 import PostPagination from '@/components/post/PostPagination.astro'
 import { getSortedPosts, getHotTags, getAllCategories, getAllTags } from '@/utils/content'
-import { siteConfig } from '@/config'
+import appConfig from '@/config.json'
 import SectionBlock from '@/components/SectionBlock.astro'
 import TagList from '@/components/TagList.astro'
 import CategoryList from '@/components/CategoryList.astro'
 import type { CollectionEntry } from 'astro:content'
+import Hero from '@/components/hero/Hero.astro'
 
 export const getStaticPaths = (async () => {
   const sortedPosts = await getSortedPosts()
-  const { perPage } = siteConfig
+  const { perPage } = appConfig.posts
   const totalPage = Math.ceil(sortedPosts.length / perPage)
 
   const paths = Array.from({ length: totalPage }).map((_, i) => {
@@ -46,9 +47,10 @@ const getPageUrl = (page: number) => {
 ---
 
 <PageLayout>
-  <div class="py-16">
+  <div>
+    {currentPage === 1 && <Hero />}
     <div
-      class="max-w-[1100px] px-4 md:px-8 mx-auto grid lg:grid-cols-[auto_300px] items-start gap-10"
+      class="max-w-[1100px] px-4 md:px-8 py-20 mx-auto grid lg:grid-cols-[auto_300px] items-start gap-10"
     >
       <SectionBlock title="最新发布">
         <PostList posts={data} />

@@ -3,7 +3,7 @@ import CommonHead from '@/components/CommonHead.astro'
 import AccentColorInjector from '@/components/AccentColorInjector.astro'
 import ThemeLoader from '@/components/ThemeLoader.astro'
 import { ViewTransitions } from 'astro:transitions'
-import { siteConfig } from '@/config'
+import { site } from '@/config.json'
 import '@/styles/global.css'
 
 interface Props {
@@ -16,7 +16,7 @@ const { title, description, image } = Astro.props
 ---
 
 <!doctype html>
-<html lang={siteConfig.lang} transition:animate="none">
+<html lang={site.lang} transition:animate="none">
   <head>
     <CommonHead title={title} description={description} image={image} />
     <ViewTransitions />

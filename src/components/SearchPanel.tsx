@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai'
 import { searchPanelOpenAtom } from '@/store/searchPanel'
-import { docSearchConfig } from '@/config'
+import appConfig from '@/config.json'
 import { DocSearchModal, useDocSearchKeyboardEvents } from '@docsearch/react'
 import '@docsearch/css'
 import { RootPortal } from './RootPortal'
@@ -25,9 +25,9 @@ export function SearchPanel() {
     isOpen && (
       <RootPortal>
         <DocSearchModal
-          appId={docSearchConfig.appId}
-          apiKey={docSearchConfig.apiKey}
-          indexName={docSearchConfig.indexName}
+          appId={appConfig.docSearch.appId}
+          apiKey={appConfig.docSearch.apiKey}
+          indexName={appConfig.docSearch.indexName}
           initialScrollY={window.scrollY}
           onClose={onClose}
         />

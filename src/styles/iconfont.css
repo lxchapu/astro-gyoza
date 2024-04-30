@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconfont'; /* Project id 4528205 */
   src:
-    url('/fonts/iconfont.woff2?t=1714373993383') format('woff2'),
-    url('/fonts/iconfont.woff?t=1714373993383') format('woff'),
-    url('/fonts/iconfont.ttf?t=1714373993383') format('truetype');
+    url('/fonts/iconfont.woff2?t=1714462582864') format('woff2'),
+    url('/fonts/iconfont.woff?t=1714462582864') format('woff'),
+    url('/fonts/iconfont.ttf?t=1714462582864') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,58 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wechat:before {
+  content: '\e7e3';
+}
+
+.icon-codepen:before {
+  content: '\e7cd';
+}
+
+.icon-instagram:before {
+  content: '\e7d3';
+}
+
+.icon-playstation:before {
+  content: '\e7d9';
+}
+
+.icon-qq:before {
+  content: '\e7da';
+}
+
+.icon-steam:before {
+  content: '\e7e2';
+}
+
+.icon-switch:before {
+  content: '\e7e5';
+}
+
+.icon-telegram:before {
+  content: '\e7e6';
+}
+
+.icon-twitch:before {
+  content: '\e7e7';
+}
+
+.icon-weibo:before {
+  content: '\e7e8';
+}
+
+.icon-xbox:before {
+  content: '\e7e9';
+}
+
+.icon-github:before {
+  content: '\e7d2';
+}
+
+.icon-down:before {
+  content: '\e83d';
 }
 
 .icon-map:before {
@@ -39,18 +91,6 @@
 
 .icon-contacts-book:before {
   content: '\e760';
-}
-
-.icon-wechat:before {
-  content: '\e7e4';
-}
-
-.icon-bilibili:before {
-  content: '\e601';
-}
-
-.icon-zhihu:before {
-  content: '\eb80';
 }
 
 .icon-x:before {
@@ -141,24 +181,12 @@
   content: '\e7bf';
 }
 
-.icon-codepen:before {
-  content: '\e7cb';
+.icon-bilibili:before {
+  content: '\e7c8';
 }
 
-.icon-github:before {
-  content: '\e7d1';
-}
-
-.icon-playstation:before {
-  content: '\e7d6';
-}
-
-.icon-steam:before {
-  content: '\e7e1';
-}
-
-.icon-weibo:before {
-  content: '\e7e3';
+.icon-zhihu:before {
+  content: '\e7e4';
 }
 
 .icon-rocket:before {

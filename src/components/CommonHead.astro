@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '@/config'
+import { site, author } from '@/config.json'
 
 interface Props {
   title?: string
@@ -7,27 +7,24 @@ interface Props {
   image?: string
 }
 
-const { title = siteConfig.title, description = siteConfig.description, image } = Astro.props
+const { title = site.title, description = site.description, image } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // 自动为标题添加后缀
-const suffixTitle = title === siteConfig.title ? title : `${title} - ${siteConfig.title}`
+const suffixTitle = title === site.title ? title : `${title} - ${site.title}`
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<meta name="theme-color" content="#ffffff" />
+<link rel="apple-touch-icon" sizes="180x180" href={site.appleTouchIcon} />
+<link rel="icon" type="image/x-icon" href={site.favicon} />
 <!-- L'Internationale, 
   Sera le genre humain. -->
 <title>{suffixTitle}</title>
-<meta name="author" content={siteConfig.author} />
+<meta name="author" content={author.name} />
 <meta name="description" content={description} />
-<meta name="keywords" content={siteConfig.keywords} />
+<meta name="keywords" content={site.keywords} />
 <meta name="generator" content={Astro.generator} />
 
 <meta property="og:url" content={Astro.url} />
@@ -39,14 +36,9 @@ const suffixTitle = title === siteConfig.title ? title : `${title} - ${siteConfi
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-{siteConfig.twitterId && <meta property="twitter:site" content={siteConfig.twitterId} />}
+{author.twitterId && <meta property="twitter:site" content={author.twitterId} />}
 {image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
 
 <link rel="canonical" href={canonicalURL} />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link
-  rel="alternate"
-  type="application/rss+xml"
-  title={siteConfig.title}
-  href={`${Astro.site}rss.xml`}
-/>
+<link rel="alternate" type="application/rss+xml" title={site.title} href={`${Astro.site}rss.xml`} />

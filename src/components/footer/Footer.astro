@@ -1,11 +1,11 @@
 ---
 import { ThemeSwitch } from './ThemeSwitch'
-import { siteConfig } from '@/config'
+import { author, footer } from '@/config.json'
 import { getAllPostsWordCount } from '@/utils/content'
 import { RunningDays } from './RunningDays'
 import Link from './Link.astro'
 
-const sinceYear = new Date(siteConfig.startTime).getFullYear()
+const sinceYear = new Date(footer.startTime).getFullYear()
 const thisYear = new Date().getFullYear()
 const copyDate = sinceYear === thisYear ? thisYear : `${sinceYear} - ${thisYear}`
 
@@ -25,7 +25,7 @@ const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
       <Link href="https://github.com/lxchapu/astro-gyoza">Gyoza</Link>
     </div>
     <div class="space-x-1">
-      <span>&copy;{copyDate} <Link href="/">{siteConfig.author}</Link>.</span>
+      <span>&copy;{copyDate} <Link href="/">{author.name}</Link>.</span>
       <Link href="/rss.xml">
         <i class="iconfont icon-rss"></i>
         <span>RSS</span>

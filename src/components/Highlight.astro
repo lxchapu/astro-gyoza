@@ -1,4 +1,12 @@
-<span class="relative"
+---
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<span class="relative" class:list={[className]}
   ><span class="absolute -z-1 top-[30%] left-0 w-full h-[40%] bg-accent/30 -rotate-3"></span><slot
   /></span
 >

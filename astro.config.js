@@ -9,10 +9,11 @@ import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import { site } from './src/config.json'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gyoza.lxchapu.com',
+  site: site.url,
   integrations: [tailwind(), react(), sitemap()],
   markdown: {
     syntaxHighlight: false,
