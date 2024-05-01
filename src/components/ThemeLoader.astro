@@ -1,6 +1,15 @@
 <script>
   import { getLocalTheme, getSystemTheme, changePageTheme } from '@/utils/theme'
 
+  // 哀悼日
+  const MOURNING_DAYS = ['4-4', '5-12', '7-7', '9-18', '12-13']
+
+  function isMourningDay() {
+    const today = new Date()
+    const dateStr = `${today.getMonth() + 1}-${today.getDate()}`
+    return MOURNING_DAYS.includes(dateStr)
+  }
+
   function load() {
     const localTheme = getLocalTheme()
     const systemTheme = getSystemTheme()
@@ -8,6 +17,9 @@
       changePageTheme(systemTheme)
     } else {
       changePageTheme(localTheme)
+    }
+    if (isMourningDay()) {
+      document.documentElement.classList.add('gray')
     }
   }
 

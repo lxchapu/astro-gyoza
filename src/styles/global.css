@@ -31,3 +31,7 @@ html {
   @apply scroll-smooth;
   scroll-padding-top: 64px;
 }
+
+html.gray {
+  filter: grayscale(1);
+}
