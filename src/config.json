@@ -90,5 +90,7 @@
     "apiKey": "",
     "indexName": ""
   },
-  "comment": {}
+  "waline": {
+    "serverURL": "https://waline.lxchapu.com"
+  }
 }

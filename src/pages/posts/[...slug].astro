@@ -11,6 +11,7 @@ import PostArchiveInfo from '@/components/post/PostArchiveInfo.astro'
 import { ReadingProgress } from '@/components/post/ReadingProgress'
 import { Outdate } from '@/components/post/Outdate'
 import PostNav from '@/components/post/PostNav.astro'
+import { Comment } from '@/components/Comment'
 
 export const getStaticPaths = (async () => {
   const sortedPosts = await getSortedPosts()
@@ -93,8 +94,15 @@ function concat(str1: string, str2: string, sep = ' / ') {
       <hr class="my-2 border-zinc-200 dark:border-zinc-700 max-w-[100px]" />
       <ReadingProgress client:idle />
     </aside>
-    <section class="mt-8">
+    <section class="mt-8 space-y-6">
       <PostNav prev={prev} next={next} />
+      {
+        current.data.comments && (
+          <div>
+            <Comment client:visible />
+          </div>
+        )
+      }
     </section>
   </div>
 </MarkdownLayout>
