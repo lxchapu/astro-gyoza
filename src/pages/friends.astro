@@ -7,7 +7,7 @@ import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
 
 const friends = await getCollection('friends')
 
-const md = await getEntry('spec', 'links')
+const md = await getEntry('spec', 'friends')
 
 const { Content } = await md.render()
 ---

@@ -76,7 +76,7 @@
     },
     {
       "name": "友链",
-      "link": "/links",
+      "link": "/friends",
       "icon": "icon-hearts"
     }
   ],
