@@ -8,7 +8,10 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "new-friend": "node scripts/new-friend.js",
+    "new-post": "node scripts/new-post.js",
+    "new-project": "node scripts/new-project.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -43,6 +46,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^5.0.2",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
   }
