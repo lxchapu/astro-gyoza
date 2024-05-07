@@ -28,5 +28,5 @@ function buildFigure(node) {
     imgTitle = imgTitle.trim()
   }
 
-  return h('figure', null, [node, imgTitle ? h('figcaption', imgTitle) : null])
+  return h('figure', null, [buildImage(node), imgTitle ? h('figcaption', imgTitle) : null])
 }
