@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconfont'; /* Project id 4528205 */
   src:
-    url('/fonts/iconfont.woff2?t=1714462582864') format('woff2'),
-    url('/fonts/iconfont.woff?t=1714462582864') format('woff'),
-    url('/fonts/iconfont.ttf?t=1714462582864') format('truetype');
+    url('/fonts/iconfont.woff2?t=1715047888381') format('woff2'),
+    url('/fonts/iconfont.woff?t=1715047888381') format('woff'),
+    url('/fonts/iconfont.ttf?t=1715047888381') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user-heart:before {
+  content: '\e88c';
 }
 
 .icon-wechat:before {

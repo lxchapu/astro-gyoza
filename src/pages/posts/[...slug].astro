@@ -12,6 +12,7 @@ import { ReadingProgress } from '@/components/post/ReadingProgress'
 import { Outdate } from '@/components/post/Outdate'
 import PostNav from '@/components/post/PostNav.astro'
 import { Comment } from '@/components/Comment'
+import { ActionAside } from '@/components/post/ActionAside'
 
 export const getStaticPaths = (async () => {
   const sortedPosts = await getSortedPosts()
@@ -90,9 +91,10 @@ function concat(str1: string, str2: string, sep = ' / ') {
     <aside class="hidden lg:block sticky top-20">
       <SectionBlock title="目录">
         <PostToc headings={headings} client:idle />
+        <hr class="my-2 border-zinc-200 dark:border-zinc-700 max-w-[100px]" />
+        <ReadingProgress client:idle />
       </SectionBlock>
-      <hr class="my-2 border-zinc-200 dark:border-zinc-700 max-w-[100px]" />
-      <ReadingProgress client:idle />
+      <ActionAside client:idle />
     </aside>
     <section class="mt-8 space-y-6">
       <PostNav prev={prev} next={next} />
