@@ -13,6 +13,7 @@ import { Outdate } from '@/components/post/Outdate'
 import PostNav from '@/components/post/PostNav.astro'
 import { Comment } from '@/components/Comment'
 import { ActionAside } from '@/components/post/ActionAside'
+import { PostCopyright } from '@/components/post/PostCopyright'
 
 export const getStaticPaths = (async () => {
   const sortedPosts = await getSortedPosts()
@@ -47,6 +48,8 @@ function concat(str1: string, str2: string, sep = ' / ') {
   if (str2) return str2
   return ''
 }
+
+const lastMod = current.data.lastMod || current.data.date
 ---
 
 <MarkdownLayout
@@ -76,17 +79,12 @@ function concat(str1: string, str2: string, sep = ' / ') {
         category={current.data.category}
         tags={current.data.tags}
       />
-      {
-        current.data.lastMod && (
-          <div>
-            <Outdate lastMod={current.data.lastMod} client:idle />
-          </div>
-        )
-      }
+      <div>
+        <Outdate lastMod={lastMod} client:idle />
+      </div>
     </header>
     <MarkdownWrapper class="col-start-1 min-w-0">
       <Content />
-      <hr />
     </MarkdownWrapper>
     <aside class="hidden lg:block sticky top-20">
       <SectionBlock title="目录">
@@ -97,6 +95,7 @@ function concat(str1: string, str2: string, sep = ' / ') {
       <ActionAside client:idle />
     </aside>
     <section class="mt-8 space-y-6">
+      <PostCopyright title={current.data.title} slug={mdSlug} lastMod={lastMod} client:visible />
       <PostNav prev={prev} next={next} />
       {
         current.data.comments && (

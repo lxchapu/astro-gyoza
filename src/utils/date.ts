@@ -1,5 +1,3 @@
-import { padStart } from 'lodash-es'
-
 // 获取两个日期的相对时间
 export function getRelativeTime(startDate: Date, endDate = new Date()) {
   const diffSeconds = Math.floor((endDate.getTime() - startDate.getTime()) / 1000)
@@ -34,6 +32,22 @@ export function getFormattedDate(date: Date) {
   return `${year} 年 ${month} 月 ${day} 日 ${week}`
 }
 
+// 数字前补 0
+function padZero(number: number, len = 2) {
+  return number.toString().padStart(len, '0')
+}
+
+// 获取格式化后的日期时间，格式：2024 年 01 月 01 日 12:00
+export function getFormattedDateTime(date: Date) {
+  const year = date.getFullYear()
+  const month = padZero(date.getMonth() + 1)
+  const day = padZero(date.getDate())
+  const hours = padZero(date.getHours())
+  const minutes = padZero(date.getMinutes())
+
+  return `${year} 年 ${month} 月 ${day} 日 ${hours}:${minutes}`
+}
+
 // 获取两个日期的相差的天数
 export function getDiffInDays(startDate: Date, endDate = new Date()) {
   return Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 86400))
@@ -41,10 +55,10 @@ export function getDiffInDays(startDate: Date, endDate = new Date()) {
 
 // 获取一个短的日期，格式为：04-20
 export function getShortDate(date: Date) {
-  const month = date.getMonth() + 1
-  const day = date.getDate()
+  const month = padZero(date.getMonth() + 1)
+  const day = padZero(date.getDate())
 
-  return `${padStart(month.toString(), 2, '0')}-${padStart(day.toString(), 2, '0')}`
+  return `${month}-${day}`
 }
 
 // 获取日期所在的年一共多少天

@@ -1,0 +1,30 @@
+.animated-signature path {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  fill: #0000;
+  animation: drawSignature 8s linear infinite both;
+  stroke-width: 2px;
+  stroke: rgb(var(--base-content));
+}
+
+@keyframes drawSignature {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+
+  15% {
+    fill: #0000;
+  }
+
+  35%,
+  75% {
+    stroke-dashoffset: 0;
+    fill: rgb(var(--base-content));
+  }
+
+  90%,
+  to {
+    stroke-dashoffset: 2400;
+    fill: #0000;
+  }
+}
