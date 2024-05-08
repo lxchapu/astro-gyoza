@@ -1,6 +1,7 @@
 import { author, site } from '@/config.json'
 import { getFormattedDateTime } from '@/utils/date'
 import { AnimatedSignature } from '../AnimatedSignature'
+import { useEffect, useState } from 'react'
 
 function getPostUrl(slug: string) {
   return new URL(slug, site.url).href
@@ -15,11 +16,16 @@ export function PostCopyright({
   slug: string
   lastMod: Date
 }) {
+  const [lastModStr, setLastModStr] = useState('')
   const url = getPostUrl(slug)
 
   function handleCopyUrl() {
     navigator.clipboard.writeText(url)
   }
+
+  useEffect(() => {
+    setLastModStr(getFormattedDateTime(lastMod))
+  }, [lastMod])
 
   return (
     <section className="text-xs leading-loose">
@@ -31,7 +37,7 @@ export function PostCopyright({
           [复制]
         </span>
       </p>
-      <p>最后修改时间：{getFormattedDateTime(lastMod)}</p>
+      <p>最后修改时间：{lastModStr}</p>
       <hr className="my-3 border-zinc-200 dark:border-zinc-700" />
       <div>
         <div className="float-right ml-4 my-2">
