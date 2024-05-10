@@ -60,50 +60,56 @@ const lastMod = current.data.lastMod || current.data.date
   mdDescription={mdDescription}
   mdSlug={mdSlug}
 >
-  <div
-    class="max-w-[1100px] mx-auto px-4 md:px-8 py-16 lg:grid grid-cols-[auto_260px] gap-x-8 items-start"
-  >
-    <header class="space-y-4 mb-8">
-      <h1 class="text-4xl font-bold text-center">
-        {current.data.title}
-      </h1>
-      <PostMetaInfo
-        class="justify-center"
-        date={current.data.date}
-        lastMod={current.data.lastMod}
-        words={remarkPluginFrontmatter.words}
-        readingMinutes={remarkPluginFrontmatter.readingMinutes}
-      />
-      <PostArchiveInfo
-        class="justify-center"
-        category={current.data.category}
-        tags={current.data.tags}
-      />
-      <div>
-        <Outdate lastMod={lastMod} client:idle />
-      </div>
-    </header>
-    <MarkdownWrapper class="col-start-1 min-w-0">
-      <Content />
-    </MarkdownWrapper>
-    <aside class="hidden lg:block sticky top-20">
-      <SectionBlock title="目录">
-        <PostToc headings={headings} client:idle />
-        <hr class="my-2 border-zinc-200 dark:border-zinc-700 max-w-[100px]" />
-        <ReadingProgress client:idle />
-      </SectionBlock>
-      <ActionAside client:idle />
-    </aside>
-    <section class="mt-8 space-y-6">
-      <PostCopyright title={current.data.title} slug={mdSlug} lastMod={lastMod} client:visible />
-      <PostNav prev={prev} next={next} />
-      {
-        current.data.comments && (
-          <div>
-            <Comment client:visible />
-          </div>
-        )
-      }
-    </section>
+  <div class="max-w-[1100px] mx-auto px-4 md:px-8 py-16 grid lg:grid-cols-[auto_260px] gap-8">
+    <div>
+      <header class="space-y-4">
+        <h1 class="text-4xl font-bold text-center">
+          {current.data.title}
+        </h1>
+        <PostMetaInfo
+          class="justify-center"
+          date={current.data.date}
+          lastMod={current.data.lastMod}
+          words={remarkPluginFrontmatter.words}
+          readingMinutes={remarkPluginFrontmatter.readingMinutes}
+        />
+        <PostArchiveInfo
+          class="justify-center"
+          category={current.data.category}
+          tags={current.data.tags}
+        />
+        <div>
+          <Outdate lastMod={lastMod} client:idle />
+        </div>
+      </header>
+    </div>
+    <div class="col-start-1 min-w-0">
+      <MarkdownWrapper>
+        <Content />
+      </MarkdownWrapper>
+    </div>
+    <div class="hidden lg:block">
+      <aside class="sticky top-20">
+        <SectionBlock title="目录">
+          <PostToc headings={headings} client:idle />
+          <hr class="my-2 border-zinc-200 dark:border-zinc-700 max-w-[100px]" />
+          <ReadingProgress client:idle />
+        </SectionBlock>
+        <ActionAside client:idle />
+      </aside>
+    </div>
+    <div>
+      <section class="space-y-6">
+        <PostCopyright title={current.data.title} slug={mdSlug} lastMod={lastMod} client:visible />
+        <PostNav prev={prev} next={next} />
+        {
+          current.data.comments && (
+            <div>
+              <Comment client:visible />
+            </div>
+          )
+        }
+      </section>
+    </div>
   </div>
 </MarkdownLayout>
