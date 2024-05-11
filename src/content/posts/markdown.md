@@ -62,7 +62,7 @@ All work and no play makes Jack a dull boy.
 The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> **Note** that you can use *Markdown syntax* within a blockquote.
 
 嵌套的引用
 
@@ -95,7 +95,7 @@ The blockquote element represents content that is quoted from another source, op
 
 | Italics   | Bold     | Code   |
 | --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+| *italics* | **bold** | `code` |
 
 ## 代码块
 
@@ -205,3 +205,11 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+
+## Spoiler
+
+```md
+||hide content||
+```
+
+正常情况下，该内容会隐藏 ||hide content||，鼠标悬浮时才会显示。
