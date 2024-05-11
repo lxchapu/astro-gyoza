@@ -1,9 +1,9 @@
-.prose :not(pre) > code {
+.prose :not(pre)>code {
   @apply px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-sm;
 }
 
-.prose :not(pre) > code::before,
-.prose :not(pre) > code::after {
+.prose :not(pre)>code::before,
+.prose :not(pre)>code::after {
   content: none;
 }
 
@@ -62,4 +62,15 @@
 .prose hr {
   max-width: 100px;
   @apply mx-auto;
+}
+
+.prose .spoiler {
+  background-color: currentColor;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.prose .spoiler:hover {
+  background-color: transparent;
 }

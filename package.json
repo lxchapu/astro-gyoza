@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@inquirer/prompts": "^5.0.2",
+    "micromark-util-symbol": "^2.0.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
   }

@@ -103,6 +103,9 @@ devDependencies:
   '@inquirer/prompts':
     specifier: ^5.0.2
     version: 5.0.2
+  micromark-util-symbol:
+    specifier: ^2.0.0
+    version: 2.0.0
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -3995,7 +3998,6 @@ packages:
 
   /micromark-util-symbol@2.0.0:
     resolution: {integrity: sha512-8JZt9ElZ5kyTnO94muPxIGS8oyElRJaiJO8EzV6ZSyGQ1Is8xwl4Q45qU5UOg+bGH4AikWziz0iN4sFLWs8PGw==}
-    dev: false
 
   /micromark-util-types@2.0.0:
     resolution: {integrity: sha512-oNh6S2WMHWRZrmutsRmDDfkzKtxF+bc2VxLC9dvtrDIRFln627VsFP6fLMgTryGDljgLPjkrzQSDcPrjPyDJ5w==}
