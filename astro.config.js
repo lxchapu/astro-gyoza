@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import { remarkReadingTime } from './src/plugins/remarkReadingTime'
 import { rehypeCodeBlock } from './src/plugins/rehypeCodeBlock'
+import { rehypeTableBlock } from './src/plugins/rehypeTableBlock'
 import { rehypeCodeHighlight } from './src/plugins/rehypeCodeHighlight'
 import { rehypeImage } from './src/plugins/rehypeImage'
 import { rehypeLink } from './src/plugins/rehypeLink'
@@ -27,6 +28,7 @@ export default defineConfig({
       rehypeHeading,
       rehypeCodeBlock,
       rehypeCodeHighlight,
+      rehypeTableBlock,
     ],
     remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
   },
