@@ -5,11 +5,10 @@
   "scripts": {
     "prepare": "pnpm exec simple-git-hooks",
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write .",
+    "lint": "prettier --write .",
     "new-friend": "node scripts/new-friend.js",
     "new-post": "node scripts/new-post.js",
     "new-project": "node scripts/new-project.js"
