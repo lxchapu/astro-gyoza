@@ -62,7 +62,7 @@ All work and no play makes Jack a dull boy.
 The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use *Markdown syntax* within a blockquote.
+> **Note** that you can use _Markdown syntax_ within a blockquote.
 
 嵌套的引用
 
@@ -95,7 +95,7 @@ The blockquote element represents content that is quoted from another source, op
 
 | Italics   | Bold     | Code   |
 | --------- | -------- | ------ |
-| *italics* | **bold** | `code` |
+| _italics_ | **bold** | `code` |
 
 ## 代码块
 

@@ -1,6 +1,6 @@
 import rehypeShiki from '@shikijs/rehype'
 
-export const rehypeCodeHighlight =  [
+export const rehypeCodeHighlight = [
   rehypeShiki,
   {
     themes: {

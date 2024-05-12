@@ -4,10 +4,8 @@ export function remarkSpoiler() {
   const self = this
   const data = self.data()
 
-  const micromarkExtensions =
-    data.micromarkExtensions || (data.micromarkExtensions = [])
-  const fromMarkdownExtensions =
-    data.fromMarkdownExtensions || (data.fromMarkdownExtensions = [])
+  const micromarkExtensions = data.micromarkExtensions || (data.micromarkExtensions = [])
+  const fromMarkdownExtensions = data.fromMarkdownExtensions || (data.fromMarkdownExtensions = [])
 
   micromarkExtensions.push(spoilerSyntax())
   fromMarkdownExtensions.push(spoilerFromMarkdown())
@@ -16,23 +14,18 @@ export function remarkSpoiler() {
 function spoilerSyntax() {
   return {
     text: {
-      [codes.verticalBar]: spoilerConstruct
-    }
+      [codes.verticalBar]: spoilerConstruct,
+    },
   }
 }
 
 const spoilerConstruct = { name: 'spoiler', tokenize: spoilerTokenize }
 const markerConstruct = { tokenize: markerTokenize, partial: true }
 
-
 function spoilerTokenize(effects, ok, nok) {
   function start() {
     effects.enter('spoiler')
-    return effects.attempt(
-      markerConstruct,
-      contentStart,
-      nok
-    )
+    return effects.attempt(markerConstruct, contentStart, nok)
   }
 
   function contentStart() {
@@ -43,29 +36,25 @@ function spoilerTokenize(effects, ok, nok) {
   }
 
   function content() {
-    return effects.check(
-      markerConstruct,
-      contentEnd,
-      consumeData
-    )
+    return effects.check(markerConstruct, contentEnd, consumeData)
   }
 
   function consumeData(code) {
     if (code === codes.eof || code < codes.horizontalTab) {
-      return nok;
+      return nok
     }
-    effects.consume(code);
-    return content;
+    effects.consume(code)
+    return content
   }
 
   function contentEnd() {
-    effects.exit(types.chunkText);
-    return effects.attempt(markerConstruct, after, nok);
+    effects.exit(types.chunkText)
+    return effects.attempt(markerConstruct, after, nok)
   }
 
   function after() {
-    effects.exit('spoiler');
-    return ok;
+    effects.exit('spoiler')
+    return ok
   }
 
   return start
@@ -102,35 +91,36 @@ function markerTokenize(effects, ok, nok) {
   return start
 }
 
-
-
 function spoilerFromMarkdown() {
   function enterHandler(token) {
-    this.enter({
-      type: 'spoiler',
-      children: []
-    }, token)
+    this.enter(
+      {
+        type: 'spoiler',
+        children: [],
+      },
+      token,
+    )
   }
 
   function exitHandler(token) {
-    const node = this.stack[this.stack.length - 1];
+    const node = this.stack[this.stack.length - 1]
     this.exit(token)
     node.data = {
       ...node.data,
       hName: 'span',
       hProperties: {
         className: 'spoiler',
-        title: '你知道的太多了'
+        title: '你知道的太多了',
       },
     }
   }
 
   return {
     enter: {
-      spoiler: enterHandler
+      spoiler: enterHandler,
     },
     exit: {
-      spoiler: exitHandler
-    }
+      spoiler: exitHandler,
+    },
   }
 }
