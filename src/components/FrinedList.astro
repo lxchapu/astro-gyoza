@@ -21,7 +21,9 @@ const { friends } = Astro.props
               loading="lazy"
             />
             <div class="min-w-0 grow">
-              <div class="truncate font-bold text-xl group-hover:text-accent">{friend.data.title}</div>
+              <div class="truncate font-bold text-xl group-hover:text-accent">
+                {friend.data.title}
+              </div>
               <div class="text-sm line-clamp-2">{friend.data.description}</div>
             </div>
             <i class="shrink-0 iconfont icon-external-link group-hover:text-accent" />
