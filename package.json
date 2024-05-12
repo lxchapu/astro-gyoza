@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "prepare": "pnpm exec simple-git-hooks",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -47,9 +48,15 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@inquirer/prompts": "^5.0.2",
     "micromark-util-symbol": "^2.0.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "simple-git-hooks": "^2.11.1"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm exec commitlint --edit $1"
   }
 }
