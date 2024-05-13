@@ -48,7 +48,8 @@
   @apply ml-1 opacity-0 hover:no-underline;
 }
 
-.prose .heading:hover .heading-anchor {
+.prose .heading:hover .heading-anchor,
+.prose .heading-anchor:focus-visible {
   @apply opacity-100;
 }
 
