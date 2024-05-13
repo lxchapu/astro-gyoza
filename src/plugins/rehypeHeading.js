@@ -17,6 +17,7 @@ export function rehypeHeading() {
           {
             href: `#${node.properties.id}`,
             class: 'heading-anchor',
+            ariaLabel: 'Heading Anchor',
           },
           h('i', { class: 'iconfont icon-link' }),
         )
