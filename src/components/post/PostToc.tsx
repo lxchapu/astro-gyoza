@@ -1,8 +1,8 @@
-import { pageScrollLocationAtom } from '@/store/scrollInfo'
+import { pageScrollLocationAtom, pageScrollDirectionAtom } from '@/store/scrollInfo'
 import type { MarkdownHeading } from 'astro'
 import clsx from 'clsx'
 import { useAtomValue } from 'jotai'
-import { useEffect, useState } from 'react'
+import { startTransition, useEffect, useRef, useState } from 'react'
 
 function useActiveItem() {
   const [activeItem, setActiveItem] = useState('')
@@ -19,7 +19,9 @@ function useActiveItem() {
       const nextItemTop = nextItem ? nextItem.getBoundingClientRect().top : 10000
 
       if (itemTop <= 80 && nextItemTop > 80) {
-        setActiveItem(item.getAttribute('id') || '')
+        startTransition(() => {
+          setActiveItem(item.id)
+        })
         break
       }
     }
@@ -33,9 +35,9 @@ export function PostToc({ headings }: { headings: MarkdownHeading[] }) {
 
   return (
     <ul
-      className="overflow-y-auto space-y-2 group"
+      className="relative overflow-y-auto space-y-2 group text-sm"
       style={{
-        maxHeight: 'min(380px, calc(100vh - 150px))',
+        maxHeight: 'min(380px, calc(100vh - 250px))',
         scrollbarWidth: 'none',
       }}
     >
@@ -63,23 +65,51 @@ export function TocItem({
   depth: number
   isActive: boolean
 }) {
+  const itemRef = useRef<HTMLLIElement>(null)
+  const scrollDirection = useAtomValue(pageScrollDirectionAtom)
+
+  useEffect(() => {
+    if (!isActive) return
+    const $item = itemRef.current
+    if (!$item) return
+    const $container = $item.parentElement
+    if (!$container) return
+
+    const containerHeight = $container.clientHeight
+    const itemHeight = $item.clientHeight
+    const itemOffsetTop = $item.offsetTop
+    const scrollTop = $container.scrollTop
+
+    const itemTop = itemOffsetTop - scrollTop
+    const itemBottom = itemTop + itemHeight
+
+    if (itemTop < 0 || itemBottom > containerHeight) {
+      if (scrollDirection === 'up') {
+        $container.scrollTop = itemOffsetTop - containerHeight + itemHeight
+
+      } else {
+        $container.scrollTop = itemOffsetTop
+      }
+    }
+  }, [isActive])
+
   return (
-    <li className="text-sm relative">
+    <li className="relative" ref={itemRef}>
       <span
         className={clsx(
           'absolute left-0 top-2 h-1 rounded-full',
-          isActive ? 'bg-accent' : 'bg-zinc-200',
+          isActive ? 'bg-accent' : 'bg-zinc-300 dark:bg-zinc-700',
         )}
         style={{ width: `${4 * (7 - depth)}px` }}
       ></span>
       <a
         className={clsx(
-          'inline-block pl-8 opacity-0',
-          isActive ? 'opacity-100' : 'group-hover:opacity-100',
+          'inline-block pl-8 opacity-0 transition-opacity duration-300',
+          isActive ? 'opacity-100' : 'group-hover:opacity-100 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100',
         )}
         href={`#${slug}`}
       >
-        <span>{text.replace(/#$/, '')}</span>
+        <span>{text}</span>
       </a>
     </li>
   )
