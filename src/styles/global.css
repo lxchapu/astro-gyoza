@@ -29,7 +29,6 @@
 html {
   color: theme('textColor.base');
   background-color: theme('backgroundColor.root');
-  @apply scroll-smooth;
   scroll-padding-top: 64px;
 }
 
