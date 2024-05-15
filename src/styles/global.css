@@ -10,6 +10,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Atkinson';
   src: url('/fonts/atkinson-bold.woff') format('woff');
@@ -22,6 +23,7 @@
   background-color: theme('colors.accent');
   color: white;
 }
+
 [data-theme='dark'] ::selection {
   background-color: theme('colors.accent/0.3');
 }
@@ -34,4 +36,8 @@ html {
 
 html.gray {
   filter: grayscale(1);
+}
+
+* {
+  scrollbar-width: thin;
 }
