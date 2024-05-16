@@ -61,7 +61,7 @@ function HeaderMenu({ isBgShow }: { isBgShow: boolean }) {
   const [mouseY, setMouseY] = useState(0)
   const [radius, setRadius] = useState(0)
 
-  const background = `radial-gradient(${radius}px circle at ${mouseX}px ${mouseY}px, rgb(var(--accent) / 0.12) 0%, transparent 65%)`
+  const background = `radial-gradient(${radius}px circle at ${mouseX}px ${mouseY}px, rgb(var(--color-accent) / 0.12) 0%, transparent 65%)`
 
   const handleMouseMove = ({ clientX, clientY, currentTarget }: React.MouseEvent) => {
     const bounds = currentTarget.getBoundingClientRect()
