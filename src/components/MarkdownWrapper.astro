@@ -6,6 +6,6 @@ interface Props {
 const { class: className } = Astro.props
 ---
 
-<article id="markdown-wrapper" class="prose max-w-none dark:prose-invert" class:list={[className]}>
+<article id="markdown-wrapper" class="prose max-w-none" class:list={[className]}>
   <slot />
 </article>

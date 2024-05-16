@@ -10,7 +10,7 @@ interface Props {
 const { tags, category, class: className } = Astro.props
 ---
 
-<div class="flex flex-wrap gap-2 text-sm text-base/60" class:list={[className]}>
+<div class="flex flex-wrap gap-2 text-sm text-secondary" class:list={[className]}>
   {
     category && (
       <div>

@@ -29,7 +29,7 @@
 }
 
 html {
-  color: theme('textColor.base');
+  color: theme('textColor.primary');
   background-color: theme('backgroundColor.root');
   scroll-padding-top: 64px;
 }

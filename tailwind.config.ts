@@ -31,14 +31,19 @@ const config: Config = {
     },
     extend: {
       colors: {
-        accent: 'rgb(var(--accent) / <alpha-value>)',
-      },
-      backgroundColor: {
-        base: 'rgb(var(--base-bg) / <alpha-value>)',
-        root: 'rgb(var(--root-bg) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
       },
       textColor: {
-        base: 'rgb(var(--base-content) / <alpha-value>)',
+        primary: 'rgb(var(--color-text-primary))',
+        secondary: 'rgb(var(--color-text-secondary))',
+      },
+      backgroundColor: {
+        root: 'rgb(var(--color-bg-root))',
+        primary: 'rgb(var(--color-bg-primary))',
+        secondary: 'rgb(var(--color-bg-secondary))',
+      },
+      borderColor: {
+        primary: 'rgb(var(--color-border-primary))',
       },
       minHeight: {
         main: 'calc(100vh - 200px)',
@@ -49,6 +54,28 @@ const config: Config = {
       zIndex: {
         '1': '1',
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('textColor.primary'),
+            '--tw-prose-headings': theme('textColor.primary'),
+            '--tw-prose-lead': theme('textColor.primary'),
+            '--tw-prose-links': theme('colors.accent/1'),
+            '--tw-prose-bold': theme('textColor.primary'),
+            '--tw-prose-counters': theme('textColor.primary'),
+            '--tw-prose-bullets': theme('textColor.primary'),
+            '--tw-prose-hr': theme('borderColor.primary'),
+            '--tw-prose-quotes': theme('textColor.secondary'),
+            '--tw-prose-quote-borders': theme('colors.accent/.8'),
+            '--tw-prose-captions': theme('textColor.secondary'),
+            '--tw-prose-code': theme('textColor.primary'),
+            '--tw-prose-pre-code': theme('textColor.primary'),
+            '--tw-prose-pre-bg': theme('backgroundColor.secondary'),
+            '--tw-prose-th-borders': theme('borderColor.primary'),
+            '--tw-prose-td-borders': theme('borderColor.primary'),
+          },
+        },
+      }),
     },
   },
   plugins: [typography],

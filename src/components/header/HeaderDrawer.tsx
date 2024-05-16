@@ -60,7 +60,7 @@ export function HeaderDrawer({ zIndex = 999 }: { zIndex?: number }) {
 
             <Dialog.Content asChild>
               <motion.div
-                className="fixed left-0 inset-y-0 h-full bg-base rounded-r-lg p-4 flex flex-col justify-center w-[260px] max-w-[80%]"
+                className="fixed left-0 inset-y-0 h-full bg-primary rounded-r-lg p-4 flex flex-col justify-center w-[260px] max-w-[80%]"
                 style={{ zIndex: contentZIndex }}
                 variants={contentVariants}
                 initial="hidden"
@@ -89,7 +89,7 @@ const TriggerButton = forwardRef<HTMLButtonElement>((props, ref) => {
   return (
     <button
       ref={ref}
-      className="size-9 rounded-full shadow-lg shadow-zinc-800/5 border border-zinc-200 dark:border-zinc-700 bg-white/50 dark:bg-zinc-800/50 backdrop-blur"
+      className="size-9 rounded-full shadow-lg shadow-zinc-800/5 border border-primary bg-white/50 dark:bg-zinc-800/50 backdrop-blur"
       type="button"
       aria-label="Open menu"
       {...props}

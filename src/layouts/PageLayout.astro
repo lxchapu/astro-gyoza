@@ -18,7 +18,7 @@ const { title, description, image } = Astro.props
   <Provider pathName={Astro.url.pathname} client:only="react" transition:persist />
 
   <Header client:only="react" />
-  <main class="relative z-1 pt-16 min-h-main bg-base"><slot /></main>
+  <main class="relative z-1 pt-16 min-h-main bg-primary"><slot /></main>
   <Footer />
 
   <SearchPanel client:only="react" />

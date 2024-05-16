@@ -1,5 +1,5 @@
 .prose :not(pre) > code {
-  @apply px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-sm;
+  @apply px-2 py-1 rounded bg-secondary text-sm;
 }
 
 .prose :not(pre) > code::before,
@@ -8,11 +8,11 @@
 }
 
 .prose a {
-  @apply no-underline text-accent hover:underline underline-offset-2 decoration-dashed;
+  @apply no-underline hover:underline underline-offset-2 decoration-dashed;
 }
 
 .prose .code-block {
-  @apply bg-zinc-100 dark:bg-zinc-800 relative rounded-lg mt-10 mb-6;
+  @apply bg-secondary relative rounded-lg mt-10 mb-6;
 }
 
 .prose .lang-tag {
@@ -26,7 +26,7 @@
 }
 
 .prose .table-block {
-  @apply bg-zinc-100 dark:bg-zinc-800 relative rounded-lg mt-10 mb-6;
+  @apply bg-secondary relative rounded-lg mt-10 mb-6;
   overflow: auto;
 }
 
@@ -37,7 +37,7 @@
 .prose img {
   min-height: 80px;
   min-width: 80px;
-  @apply rounded-lg bg-zinc-100 dark:bg-zinc-800;
+  @apply rounded-lg bg-secondary;
 }
 
 .prose figure {
@@ -54,7 +54,7 @@
 }
 
 .prose iframe {
-  @apply rounded-lg w-full bg-zinc-100 dark:bg-zinc-800;
+  @apply rounded-lg w-full bg-secondary;
 }
 
 .prose iframe.codepen {

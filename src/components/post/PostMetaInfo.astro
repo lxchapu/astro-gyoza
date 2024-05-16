@@ -12,7 +12,7 @@ interface Props {
 const { date, lastMod, words, readingMinutes, class: className } = Astro.props
 ---
 
-<div class="flex flex-wrap gap-2 text-sm text-base/60" class:list={[className]}>
+<div class="flex flex-wrap gap-2 text-sm text-secondary" class:list={[className]}>
   <div>
     <i class="iconfont icon-calendar"></i>
     <RelativeDate date={date} client:idle />

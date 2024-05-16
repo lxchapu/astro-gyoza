@@ -33,11 +33,7 @@ const { remarkPluginFrontmatter } = await entry.render()
         />
       )
     }
-    {
-      entry.data.summary && (
-        <p class="text-gray-800/90 dark:text-gray-200/90">{entry.data.summary}</p>
-      )
-    }
+    {entry.data.summary && <p>{entry.data.summary}</p>}
   </div>
   <div class="mt-2 flex flex-wrap items-center justify-end gap-4 select-none">
     <PostMetaInfo

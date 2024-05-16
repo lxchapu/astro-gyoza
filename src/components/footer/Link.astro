@@ -9,7 +9,7 @@ const isExternal = href.startsWith('http')
 ---
 
 <a
-  class="hover:text-accent/80"
+  class="hover:text-accent"
   href={href}
   target={isExternal ? '_blank' : undefined}
   rel={isExternal ? 'noopener noreferrer' : undefined}><slot /></a

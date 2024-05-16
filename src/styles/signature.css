@@ -1,10 +1,10 @@
 .animated-signature path {
   stroke-dasharray: 2400;
   stroke-dashoffset: 2400;
-  fill: #0000;
+  fill: transparent;
   animation: drawSignature 8s linear infinite both;
   stroke-width: 2px;
-  stroke: rgb(var(--base-content));
+  stroke: theme('textColor.primary');
 }
 
 @keyframes drawSignature {
@@ -13,18 +13,18 @@
   }
 
   15% {
-    fill: #0000;
+    fill: transparent;
   }
 
   35%,
   75% {
     stroke-dashoffset: 0;
-    fill: rgb(var(--base-content));
+    fill: theme('textColor.primary');
   }
 
   90%,
   to {
     stroke-dashoffset: 2400;
-    fill: #0000;
+    fill: transparent;
   }
 }

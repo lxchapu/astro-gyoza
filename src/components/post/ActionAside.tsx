@@ -103,21 +103,21 @@ function ShareButton() {
               }}
             >
               <motion.div
-                className="bg-base rounded-lg p-2 min-w-[420px] border border-zinc-200 dark:border-zinc-700 flex flex-col"
+                className="bg-primary rounded-lg p-2 min-w-[420px] border border-primary flex flex-col"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
               >
                 <h2 className="px-3 py-1 font-bold">分享此内容</h2>
-                <hr className="my-2 border-zinc-200 dark:border-zinc-700" />
+                <hr className="my-2 border-primary" />
                 <div className="px-3 py-2 grid grid-cols-[180px_auto] gap-3">
                   <QR.QRCodeSVG value={url} size={180} />
-                  <div className="flex flex-col gap-2 text-sm">
-                    分享到...
+                  <div className="flex flex-col gap-2">
+                    <div className='text-sm'>分享到...</div>
                     <ul className="flex flex-col gap-2">
                       {shareList.map((item) => (
                         <li
-                          className="px-2 py-1 flex gap-2 text-base cursor-pointer rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className="px-2 py-1 flex gap-2 cursor-pointer rounded-md hover:bg-secondary"
                           key={item.name}
                           onClick={() => item.onClick({ url, text })}
                           role="button"

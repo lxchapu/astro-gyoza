@@ -25,14 +25,12 @@ export function HeaderMeta() {
           }}
         >
           <div className="grow min-w-0">
-            <div className="truncate text-gray-600/60 dark:text-gray-300/60 text-xs">
-              {description}
-            </div>
+            <div className="text-secondary text-xs truncate">{description}</div>
             <h2 className="truncate text-lg">{title}</h2>
           </div>
           <div className="hidden md:block min-w-0 text-right">
-            <div className="text-gray-600/60 dark:text-gray-300/60 text-xs truncate">{slug}</div>
-            <div className="text-gray-600 dark:text-gray-300">{site.title}</div>
+            <div className="text-secondary text-xs truncate">{slug}</div>
+            <div>{site.title}</div>
           </div>
         </motion.div>
       )}

@@ -9,13 +9,13 @@ export function ThemeSwitch() {
   return (
     <div className="relative inline-block">
       <div
-        className="absolute -z-1 top-1 size-[32px] rounded-full bg-base transition-transform shadow"
+        className="absolute -z-1 top-1 size-[32px] rounded-full bg-primary transition-transform shadow"
         style={{
           transform: `translateX(${left}px)`,
         }}
       ></div>
       <div
-        className="p-[3px] flex rounded-full border border-zinc-200 dark:border-zinc-700"
+        className="p-[3px] flex rounded-full border border-primary"
         role="radiogroup"
       >
         <button
