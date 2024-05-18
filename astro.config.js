@@ -6,7 +6,9 @@ import { rehypeCodeHighlight } from './src/plugins/rehypeCodeHighlight'
 import { rehypeImage } from './src/plugins/rehypeImage'
 import { rehypeLink } from './src/plugins/rehypeLink'
 import { rehypeHeading } from './src/plugins/rehypeHeading'
+import remarkDirective from 'remark-directive'
 import { remarkSpoiler } from './src/plugins/remarkSpoiler'
+import { remarkEmbed } from './src/plugins/remarkEmbed'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
@@ -20,7 +22,7 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     smartypants: false,
-    remarkPlugins: [remarkSpoiler, remarkReadingTime],
+    remarkPlugins: [remarkDirective, remarkEmbed, remarkSpoiler, remarkReadingTime],
     rehypePlugins: [
       rehypeHeadingIds,
       rehypeLink,
