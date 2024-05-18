@@ -25,13 +25,12 @@
   @apply my-0 px-6 py-4 bg-transparent text-sm leading-relaxed;
 }
 
-.prose .table-block {
-  @apply bg-secondary relative rounded-lg mt-10 mb-6;
-  overflow: auto;
+.prose .table-wrapper {
+  @apply overflow-x-auto my-6;
 }
 
 .prose table {
-  @apply w-auto mx-4;
+  @apply w-auto my-0 mx-auto text-left;
 }
 
 .prose img {
