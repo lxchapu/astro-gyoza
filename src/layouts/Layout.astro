@@ -5,6 +5,7 @@ import ThemeLoader from '@/components/ThemeLoader.astro'
 import { ViewTransitions } from 'astro:transitions'
 import { site } from '@/config.json'
 import '@/styles/global.css'
+import { ToastContainer } from '@/components/ToastContainer'
 
 interface Props {
   title?: string
@@ -24,15 +25,15 @@ const { title, description, image } = Astro.props
     <AccentColorInjector />
     <script>
       import { version } from '../../package.json'
-
       console.log(
         `%c Gyoza ${version} %c https://gyoza.lxchapu.com `,
         'color: #fff; margin: 1em 0; padding: 5px 0; background: #ef8f99;',
-        'margin: 1em 0; padding: 5px 0; background: #efefef;',
+        'margin: 1em 0; padding: 5px 0; background: #efefef;'
       )
     </script>
   </head>
   <body>
     <slot />
+    <ToastContainer client:only="react" />
   </body>
 </html>
