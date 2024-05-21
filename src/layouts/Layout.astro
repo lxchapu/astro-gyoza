@@ -6,6 +6,7 @@ import { ViewTransitions } from 'astro:transitions'
 import { site } from '@/config.json'
 import '@/styles/global.css'
 import { ToastContainer } from '@/components/ToastContainer'
+import { WebAnalytics } from '@/components/WebAnalytics'
 
 interface Props {
   title?: string
@@ -20,6 +21,7 @@ const { title, description, image } = Astro.props
 <html lang={site.lang} transition:animate="none">
   <head>
     <CommonHead title={title} description={description} image={image} />
+    <WebAnalytics />
     <ViewTransitions />
     <ThemeLoader />
     <AccentColorInjector />
