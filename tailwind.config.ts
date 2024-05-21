@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-import typography from '@tailwindcss/typography'
 
 const config: Config = {
   content: ['./src/**/*.{astro,ts,tsx,js,jsx}'],
@@ -54,31 +53,8 @@ const config: Config = {
       zIndex: {
         '1': '1',
       },
-      typography: ({ theme }) => ({
-        DEFAULT: {
-          css: {
-            '--tw-prose-body': theme('textColor.primary'),
-            '--tw-prose-headings': theme('textColor.primary'),
-            '--tw-prose-lead': theme('textColor.primary'),
-            '--tw-prose-links': theme('colors.accent/1'),
-            '--tw-prose-bold': theme('textColor.primary'),
-            '--tw-prose-counters': theme('textColor.primary'),
-            '--tw-prose-bullets': theme('textColor.primary'),
-            '--tw-prose-hr': theme('borderColor.primary'),
-            '--tw-prose-quotes': theme('textColor.secondary'),
-            '--tw-prose-quote-borders': theme('colors.accent/.8'),
-            '--tw-prose-captions': theme('textColor.secondary'),
-            '--tw-prose-code': theme('textColor.primary'),
-            '--tw-prose-pre-code': theme('textColor.primary'),
-            '--tw-prose-pre-bg': theme('backgroundColor.secondary'),
-            '--tw-prose-th-borders': theme('borderColor.primary'),
-            '--tw-prose-td-borders': theme('borderColor.primary'),
-          },
-        },
-      }),
     },
   },
-  plugins: [typography],
 }
 
 export default config

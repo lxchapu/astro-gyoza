@@ -1,81 +1,165 @@
-.prose :not(pre) > code {
-  @apply px-2 py-1 rounded bg-secondary text-sm;
+.markdown > :first-child {
+  @apply mt-0;
 }
 
-.prose :not(pre) > code::before,
-.prose :not(pre) > code::after {
-  content: none;
+.markdown > :last-child {
+  @apply mb-0;
 }
 
-.prose a {
-  @apply no-underline hover:underline underline-offset-2 decoration-dashed;
+.markdown p {
+  @apply mb-5;
 }
 
-.prose .code-block {
-  @apply bg-secondary relative rounded-lg mt-10 mb-6;
+.markdown h1 {
+  @apply text-4xl font-extrabold mb-8;
 }
 
-.prose .lang-tag {
+.markdown h2 {
+  @apply text-2xl font-bold mt-12 mb-6;
+}
+
+.markdown h3 {
+  @apply text-xl font-semibold mt-8 mb-3;
+}
+
+.markdown h4 {
+  @apply font-semibold mt-6 mb-2;
+}
+
+.markdown a {
+  @apply font-normal text-accent hover:underline underline-offset-2;
+}
+
+.markdown a + .icon-external-link {
+  @apply text-secondary ml-1;
+}
+
+.markdown blockquote {
+  @apply my-5 pl-4 border-l-2 border-accent/80 text-secondary italic;
+}
+
+.markdown blockquote::before {
+  content: '\e793';
+  font-family: 'iconfont';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply not-italic text-accent/80;
+}
+
+.markdown blockquote > p:last-child {
+  @apply mb-0;
+}
+
+.markdown :not(pre) > code {
+  @apply px-2 py-1 rounded bg-secondary text-sm font-semibold;
+}
+
+.markdown .code-block {
+  @apply relative mt-10 mb-5 bg-secondary rounded-lg;
+}
+
+.markdown .lang-tag {
   @apply absolute right-6 -top-6 h-6 px-4 flex items-center rounded-t-lg bg-inherit text-sm;
 }
 
-.prose pre {
-  min-height: 60px;
-  max-height: 450px;
-  @apply my-0 px-6 py-4 bg-transparent text-sm leading-relaxed;
+.markdown pre {
+  @apply px-6 py-4 max-h-[450px] text-sm leading-relaxed overflow-auto;
 }
 
-.prose .table-wrapper {
-  @apply overflow-x-auto my-6;
+.markdown .table-wrapper {
+  @apply overflow-x-auto my-5;
 }
 
-.prose table {
-  @apply w-auto my-0 mx-auto text-left;
+.markdown table {
+  @apply w-auto mx-auto text-left table-auto text-sm;
 }
 
-.prose img {
-  min-height: 80px;
-  min-width: 80px;
-  @apply rounded-lg bg-secondary;
+.markdown tr {
+  @apply border-b border-primary;
 }
 
-.prose figure {
-  @apply flex flex-col items-center;
+.markdown th,
+.markdown td {
+  @apply p-2;
 }
 
-.prose .heading-anchor {
+.markdown td {
+  @apply align-baseline;
+}
+
+.markdown img {
+  @apply rounded-lg bg-secondary min-h-[80px] min-w-[80px];
+}
+
+.markdown figure {
+  @apply mb-5 flex flex-col items-center;
+}
+
+.markdown figcaption {
+  @apply mt-3 text-secondary text-sm;
+}
+
+.markdown .heading-anchor {
   @apply ml-1 opacity-0 hover:no-underline;
 }
 
-.prose .heading:hover .heading-anchor,
-.prose .heading-anchor:focus-visible {
+.markdown .heading:hover .heading-anchor,
+.markdown .heading-anchor:focus-visible {
   @apply opacity-100;
 }
 
-.prose iframe {
+.markdown iframe {
   @apply rounded-lg w-full bg-secondary;
 }
 
-.prose iframe.codepen {
-  min-height: 450px;
+.markdown iframe.codepen {
+  @apply min-h-[450px];
 }
 
-.prose iframe.video {
+.markdown iframe.video {
   @apply aspect-video;
 }
 
-.prose hr {
-  max-width: 100px;
-  @apply mx-auto;
+.markdown hr {
+  @apply mx-auto max-w-[100px];
 }
 
-.prose .spoiler {
-  background-color: currentColor;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.2s;
+.markdown ul {
+  @apply list-disc;
 }
 
-.prose .spoiler:hover {
-  background-color: transparent;
+.markdown ol {
+  @apply list-decimal;
+}
+
+.markdown ol,
+.markdown ul {
+  @apply my-5 pl-6 space-y-2;
+}
+
+.markdown ul ul,
+.markdown ul ol,
+.markdown ol ul,
+.markdown ol ol {
+  @apply my-3;
+}
+
+.markdown .spoiler {
+  @apply bg-current rounded transition-bg-color not-italic;
+}
+
+.markdown .spoiler:hover {
+  @apply bg-transparent;
+}
+
+.markdown h2 + * {
+  @apply mt-0;
+}
+
+.markdown h3 + * {
+  @apply mt-0;
+}
+
+.markdown h4 + * {
+  @apply mt-0;
 }
