@@ -121,7 +121,7 @@
 }
 
 .markdown hr {
-  @apply mx-auto max-w-[100px];
+  @apply my-12 mx-auto max-w-[100px] border-primary;
 }
 
 .markdown ul {
