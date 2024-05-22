@@ -136,6 +136,22 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 const var text = "hello world"
 ```
 
+## KaTeX 公式
+
+使用 `$` 符号包裹公式生成行内公式，例如：$E = mc^2$。
+
+使用 `$$` 符号包裹公式来生成独立公式。例如：
+
+$$
+e^{i\pi} + 1 = 0
+$$
+
+也可以使用代码块（` ```math `）的方式：
+
+```math
+\oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \frac{Q}{\epsilon_0}
+```
+
 ## List Types
 
 ### Ordered List
