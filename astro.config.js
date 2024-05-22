@@ -14,6 +14,8 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import { site } from './src/config.json'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,9 +24,10 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     smartypants: false,
-    remarkPlugins: [remarkDirective, remarkEmbed, remarkSpoiler, remarkReadingTime],
+    remarkPlugins: [remarkMath, remarkDirective, remarkEmbed, remarkSpoiler, remarkReadingTime],
     rehypePlugins: [
       rehypeHeadingIds,
+      rehypeKatex,
       rehypeLink,
       rehypeImage,
       rehypeHeading,
