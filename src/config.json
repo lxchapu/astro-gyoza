@@ -15,7 +15,7 @@
   },
   "hero": {
     "name": "Gyoza",
-    "bio": "A staic blog template build with Astro and React.",
+    "bio": "A static blog template build with Astro and React.",
     "description": "Clean, Cute, Fast.",
     "socials": [
       {
