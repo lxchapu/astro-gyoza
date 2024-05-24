@@ -1,11 +1,7 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 
-interface Props {
-  projects: CollectionEntry<'projects'>[]
-}
-
-const { projects } = Astro.props
+const projects = await getCollection('projects')
 ---
 
 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
