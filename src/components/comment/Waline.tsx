@@ -1,15 +1,14 @@
 import { useEffect, useRef } from 'react'
 import { init } from '@waline/client'
-import { waline } from '@/config.json'
 import '@waline/client/style'
-// TODO: Use custom comment system
-export function Comment() {
+
+export function Waline({ serverURL }: { serverURL: string }) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const walineInst = init({
       el: ref.current,
-      serverURL: waline.serverURL,
+      serverURL,
       dark: "[data-theme='dark']",
       login: 'force',
       imageUploader: false,
@@ -25,7 +24,7 @@ export function Comment() {
         walineInst?.destroy()
       }
     }
-  }, [])
+  }, [serverURL])
 
   return <div ref={ref}></div>
 }

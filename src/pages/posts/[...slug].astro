@@ -11,7 +11,7 @@ import PostArchiveInfo from '@/components/post/PostArchiveInfo.astro'
 import { ReadingProgress } from '@/components/post/ReadingProgress'
 import { Outdate } from '@/components/post/Outdate'
 import PostNav from '@/components/post/PostNav.astro'
-import { Comment } from '@/components/Comment'
+import { Comments } from '@/components/comment'
 import { ActionAside } from '@/components/post/ActionAside'
 import { PostCopyright } from '@/components/post/PostCopyright'
 
@@ -102,13 +102,7 @@ const lastMod = current.data.lastMod || current.data.date
       <section class="space-y-6">
         <PostCopyright title={current.data.title} slug={mdSlug} lastMod={lastMod} client:visible />
         <PostNav prev={prev} next={next} />
-        {
-          current.data.comments && (
-            <div>
-              <Comment client:visible />
-            </div>
-          )
-        }
+        {current.data.comments && <Comments />}
       </section>
     </div>
   </div>
