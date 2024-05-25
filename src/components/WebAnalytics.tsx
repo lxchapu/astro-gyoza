@@ -1,7 +1,7 @@
 import { analytics } from '@/config.json'
 
 export function WebAnalytics() {
-  if (import.meta.env.DEV || !analytics.enbale) return null
+  if (import.meta.env.DEV || !analytics.enable) return null
 
   return <>
     {
