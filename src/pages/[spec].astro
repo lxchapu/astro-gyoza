@@ -7,7 +7,7 @@ import PageLayout from '@/layouts/PageLayout.astro'
 import Highlight from '@/components/Highlight.astro'
 import SectionBlock from '@/components/SectionBlock.astro'
 import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
-import FrinedList from '@/components/FrinedList.astro'
+import FriendList from '@/components/FriendList.astro'
 import ProjectList from '@/components/ProjectList.astro'
 import { ReadingProgress } from '@/components/post/ReadingProgress'
 import { PostToc } from '@/components/post/PostToc'
@@ -46,7 +46,7 @@ const isMdContentEmpty = md.body.trim().length === 0
           </h1>
           <p>{md.data.description}</p>
         </header>
-        {md.slug === 'friends' && <FrinedList />}
+        {md.slug === 'friends' && <FriendList />}
         {md.slug === 'projects' && <ProjectList />}
         {!isMdContentEmpty && (
           <MarkdownWrapper>
