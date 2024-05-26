@@ -1,13 +1,14 @@
 ---
-import CommonHead from '@/components/CommonHead.astro'
-import AccentColorInjector from '@/components/AccentColorInjector.astro'
-import ThemeLoader from '@/components/ThemeLoader.astro'
 import { ViewTransitions } from 'astro:transitions'
+import {
+  CommonHead,
+  WebAnalytics,
+  ThemeLoader,
+  AccentColorInjector,
+  PrintVersion,
+} from '@/components/head'
 import { site } from '@/config.json'
 import '@/styles/global.css'
-import { ToastContainer } from '@/components/ToastContainer'
-import { WebAnalytics } from '@/components/WebAnalytics'
-import { ModalStack } from '@/components/ui/modal'
 
 interface Props {
   title?: string
@@ -26,18 +27,9 @@ const { title, description, image } = Astro.props
     <ViewTransitions />
     <ThemeLoader />
     <AccentColorInjector />
-    <script>
-      import { version } from '../../package.json'
-      console.log(
-        `%c Gyoza ${version} %c https://gyoza.lxchapu.com `,
-        'color: #fff; margin: 1em 0; padding: 5px 0; background: #ef8f99;',
-        'margin: 1em 0; padding: 5px 0; background: #efefef;'
-      )
-    </script>
+    <PrintVersion />
   </head>
   <body>
     <slot />
-    <ToastContainer client:only="react" />
-    <ModalStack client:only="react" />
   </body>
 </html>

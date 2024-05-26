@@ -4,6 +4,8 @@ import { Header } from '@/components/header/Header'
 import Footer from '@/components/footer/Footer.astro'
 import { SearchPanel } from '@/components/SearchPanel'
 import { Provider } from '@/components/provider/Provider'
+import { ToastContainer } from '@/components/ToastContainer'
+import { ModalStack } from '@/components/ui/modal'
 
 interface Props {
   title?: string
@@ -15,11 +17,13 @@ const { title, description, image } = Astro.props
 ---
 
 <Layout title={title} description={description} image={image}>
-  <Provider pathName={Astro.url.pathname} client:only="react" transition:persist />
+  <Provider pathName={Astro.url.pathname} client:only="react" />
 
-  <Header client:only="react" />
+  <Header client:only="react" transition:persist="header" />
   <main class="relative z-1 pt-16 min-h-main bg-primary"><slot /></main>
   <Footer />
 
   <SearchPanel client:only="react" />
+  <ToastContainer client:only="react" />
+  <ModalStack client:only="react" />
 </Layout>

@@ -6,6 +6,8 @@ import { Header } from '@/components/header/Header'
 import { SearchPanel } from '@/components/SearchPanel'
 import { BackToTopFAB } from '@/components/BackToTopFAB'
 import { Provider } from '@/components/provider/Provider'
+import { ToastContainer } from '@/components/ToastContainer'
+import { ModalStack } from '@/components/ui/modal'
 
 interface Props {
   title: string
@@ -26,10 +28,9 @@ const { title, description, image, mdTitle, mdDescription, mdSlug } = Astro.prop
     description={mdDescription}
     slug={mdSlug}
     client:only="react"
-    transition:persist
   />
 
-  <Header client:only="react" />
+  <Header client:only="react" transition:persist="header" />
   <main class="relative z-1 pt-16 min-h-main bg-primary">
     <HeadGadient />
     <slot />
@@ -38,4 +39,6 @@ const { title, description, image, mdTitle, mdDescription, mdSlug } = Astro.prop
 
   <BackToTopFAB client:only="react" />
   <SearchPanel client:only="react" />
+  <ToastContainer client:only="react" />
+  <ModalStack client:only="react" />
 </Layout>

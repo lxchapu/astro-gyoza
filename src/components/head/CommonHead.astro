@@ -9,9 +9,7 @@ interface Props {
 
 const { title = site.title, description = site.description, image } = Astro.props
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-// 自动为标题添加后缀
-const suffixTitle = title === site.title ? title : `${title} - ${site.title}`
+const titleWithSiteSuffix = title === site.title ? title : `${title} - ${site.title}`
 ---
 
 <meta charset="utf-8" />
@@ -21,7 +19,7 @@ const suffixTitle = title === site.title ? title : `${title} - ${site.title}`
 <link rel="icon" href={site.favicon} />
 <!-- L'Internationale, 
   Sera le genre humain. -->
-<title>{suffixTitle}</title>
+<title>{titleWithSiteSuffix}</title>
 <meta name="author" content={author.name} />
 <meta name="description" content={description} />
 <meta name="keywords" content={site.keywords} />
@@ -39,7 +37,13 @@ const suffixTitle = title === site.title ? title : `${title} - ${site.title}`
 {author.twitterId && <meta property="twitter:site" content={author.twitterId} />}
 {image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
 
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" title={site.title} href={`${Astro.site}rss.xml`} />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={site.title}
+  href={new URL('/rss.xml', Astro.url)}
+/>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" />
