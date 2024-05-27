@@ -68,6 +68,9 @@ dependencies:
   jotai:
     specifier: ^2.8.0
     version: 2.8.0(@types/react@18.2.78)(react@18.2.0)
+  katex:
+    specifier: ^0.16.10
+    version: 0.16.10
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
