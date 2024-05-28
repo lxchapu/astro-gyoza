@@ -115,7 +115,10 @@
     },
     "umami": {
       "serverUrl": "",
-      "websitId": ""
+      "websiteId": ""
+    },
+    "microsoftClarity": {
+        "projectId": ""
     }
   }
 }
