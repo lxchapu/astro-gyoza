@@ -72,7 +72,7 @@ function HeaderMenu({ isBgShow }: { isBgShow: boolean }) {
 
   return (
     <nav
-      className={clsx('relative rounded-full group pointer-events-auto', {
+      className={clsx('relative rounded-full group pointer-events-auto duration-100', {
         'shadow-lg shadow-zinc-800/5 border border-primary bg-white/50 dark:bg-zinc-800/50 backdrop-blur':
           isBgShow,
       })}

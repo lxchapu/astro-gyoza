@@ -10,14 +10,16 @@ import { pageScrollLocationAtom, pageScrollDirectionAtom } from '@/store/scrollI
 import { isMobileAtom } from '@/store/viewport'
 import { floor } from 'lodash-es'
 
-const threshold = 50
+const threshold = 60
 
 export function useHeaderBgOpacity() {
   const scrollY = useAtomValue(pageScrollLocationAtom)
-  if (scrollY >= threshold) {
+  if (scrollY >= threshold * 2) {
     return 1
+  } else if (scrollY <= threshold) {
+    return 0
   } else {
-    return floor(scrollY / threshold, 2)
+    return floor((scrollY - threshold) / threshold, 2)
   }
 }
 
