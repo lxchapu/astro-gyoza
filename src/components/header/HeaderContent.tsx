@@ -72,14 +72,14 @@ function HeaderMenu({ isBgShow }: { isBgShow: boolean }) {
 
   return (
     <nav
-      className={clsx('relative rounded-full group pointer-events-auto duration-100', {
-        'shadow-lg shadow-zinc-800/5 border border-primary bg-white/50 dark:bg-zinc-800/50 backdrop-blur':
+      className={clsx('relative rounded-full group pointer-events-auto duration-200', {
+        'bg-gradient-to-b from-zinc-50/70 to-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md dark:from-zinc-900/70 dark:to-zinc-800/90 dark:ring-zinc-100/10':
           isBgShow,
       })}
       onMouseMove={handleMouseMove}
     >
       <div
-        className="absolute -z-1 -inset-px rounded-full opacity-0 group-hover:opacity-100"
+        className="absolute -z-1 -inset-px rounded-full opacity-0 group-hover:opacity-100 duration-500"
         style={{ background }}
         aria-hidden
       ></div>
