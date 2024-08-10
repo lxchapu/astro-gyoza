@@ -60,7 +60,10 @@ const lastMod = current.data.lastMod || current.data.date
   mdDescription={mdDescription}
   mdSlug={mdSlug}
 >
-  <div class="max-w-[1100px] mx-auto px-4 md:px-8 py-16 grid lg:grid-cols-[auto_260px] gap-8">
+  <div
+    class="max-w-[1100px] mx-auto px-4 md:px-8 py-16 grid lg:grid-cols-[auto_260px] gap-8"
+    data-pagefind-body
+  >
     <div>
       <header class="space-y-4">
         <h1 class="text-4xl font-bold text-center">
@@ -88,7 +91,7 @@ const lastMod = current.data.lastMod || current.data.date
         <Content />
       </MarkdownWrapper>
     </div>
-    <div class="hidden lg:block">
+    <div class="hidden lg:block" data-pagefind-ignore>
       <aside class="sticky top-20">
         <SectionBlock title="目录">
           <PostToc headings={headings} client:idle />
@@ -98,7 +101,7 @@ const lastMod = current.data.lastMod || current.data.date
         <ActionAside client:idle />
       </aside>
     </div>
-    <div>
+    <div data-pagefind-ignore>
       <section class="space-y-6">
         <PostCopyright title={current.data.title} slug={mdSlug} lastMod={lastMod} client:visible />
         <PostNav prev={prev} next={next} />

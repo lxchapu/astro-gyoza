@@ -3,7 +3,6 @@ import Layout from './Layout.astro'
 import { HeadGradient } from '@/components/head-gradient'
 import Footer from '@/components/footer/Footer.astro'
 import { Header } from '@/components/header/Header'
-import { SearchPanel } from '@/components/SearchPanel'
 import { BackToTopFAB } from '@/components/BackToTopFAB'
 import { Provider } from '@/components/provider/Provider'
 import { ToastContainer } from '@/components/ToastContainer'
@@ -39,7 +38,6 @@ const { title, description, image, mdTitle, mdDescription, mdSlug } = Astro.prop
   <Footer />
 
   <BackToTopFAB client:only="react" />
-  <SearchPanel client:only="react" />
   <ToastContainer client:only="react" />
   <ModalStack client:only="react" />
 </Layout>
