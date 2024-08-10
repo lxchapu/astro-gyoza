@@ -1,7 +1,7 @@
 ---
 title: Gyoza 使用指南
 date: 2024-04-01
-lastMod: 2024-05-08T13:41:24.948Z
+lastMod: 2024-08-10T03:58:16.758Z
 summary: 欢迎使用 Gyoza，Gyoza 是一款 Astro 博客主题，它保持简洁和可爱的风格。本篇文章将会介绍如何使用并部署 Gyoza。
 category: 教程
 tags: [Astro, Gyoza]
@@ -91,8 +91,22 @@ pnpm preview
     "yiyan": "" // 显示一言
   },
   "color": {
-    // 强调色，每次随机从中取出一组
-    "accent": [{ "light": "", "dark": "" }]
+    // 强调色，请填写 16 进制颜色值。每次会从中随机取出一组
+    "accent": [{ "light": "", "dark": "" }],
+    // 背景色
+    "bg": {
+      "primary": { "light": "", "dark": "" },
+      "secondary": { "light": "", "dark": "" }
+    },
+    // 文字颜色
+    "text": {
+      "primary": { "light": "", "dark": "" },
+      "secondary": { "light": "", "dark": "" }
+    },
+    // 边框颜色
+    "border": {
+      "primary": { "light": "", "dark": "" }
+    }
   },
   // 顶部导航栏
   "menus": [
@@ -108,19 +122,30 @@ pnpm preview
   "footer": {
     "startTime": "" // 博客网站开始时间 请使用 ISO 格式
   },
-  // doc search 搜索功能，请前往 https://docsearch.algolia.com/apply/ 申请
-  "docSearch": {
-    "appId": "",
-    "apiKey": "",
-    "indexName": ""
-  },
-  // waline 评论系统，前往 https://waline.js.org/ 查看
+  // Waline 评论系统，前往 https://waline.js.org/ 查看
   "waline": {
     "serverURL": ""
   },
   // 赞助
   "sponsor": {
     "wechat": "" // 微信赞赏码图片地址
+  },
+  // 如果需要使用网站数据统计，将 enable 修改为 true，并填写对应的配置
+  "analytics": {
+    "enable": false,
+    // https://analytics.google.com
+    "google": {
+      "measurementId": ""
+    },
+    // https://umami.is/docs
+    "umami": {
+      "serverUrl": "",
+      "websiteId": ""
+    },
+    // https://clarity.microsoft.com/
+    "microsoftClarity": {
+      "projectId": ""
+    }
   }
 }
 ```
