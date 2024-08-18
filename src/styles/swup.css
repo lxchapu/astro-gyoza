@@ -1,0 +1,7 @@
+html.is-changing .swup-transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+html.is-animating .swup-transition-fade {
+  opacity: 0;
+}

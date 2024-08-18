@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
 import {
   CommonHead,
   WebAnalytics,
@@ -7,6 +6,9 @@ import {
   AccentColorInjector,
   PrintVersion,
 } from '@/components/head'
+import { BackToTopFAB } from '@/components/BackToTopFAB'
+import { ToastContainer } from '@/components/ToastContainer'
+import { ModalStack } from '@/components/ui/modal'
 import { site } from '@/config.json'
 import '@/styles/global.css'
 
@@ -20,16 +22,19 @@ const { title, description, image } = Astro.props
 ---
 
 <!doctype html>
-<html lang={site.lang} transition:animate="none">
+<html lang={site.lang}>
   <head>
     <CommonHead title={title} description={description} image={image} />
     <WebAnalytics />
-    <ViewTransitions />
     <ThemeLoader />
     <AccentColorInjector />
     <PrintVersion />
   </head>
   <body>
     <slot />
+
+    <BackToTopFAB client:only="react" />
+    <ToastContainer client:only="react" />
+    <ModalStack client:only="react" />
   </body>
 </html>

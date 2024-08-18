@@ -3,8 +3,6 @@ import Layout from './Layout.astro'
 import { Header } from '@/components/header/Header'
 import Footer from '@/components/footer/Footer.astro'
 import { Provider } from '@/components/provider/Provider'
-import { ToastContainer } from '@/components/ToastContainer'
-import { ModalStack } from '@/components/ui/modal'
 
 interface Props {
   title?: string
@@ -18,10 +16,11 @@ const { title, description, image } = Astro.props
 <Layout title={title} description={description} image={image}>
   <Provider pathName={Astro.url.pathname} client:only="react" />
 
-  <Header client:only="react" transition:persist="header" />
-  <main class="relative z-1 pt-16 min-h-main bg-primary"><slot /></main>
+  <Header client:only="react" />
+  <main class="relative z-1 pt-16 min-h-main bg-primary">
+    <div class="swup-transition-fade">
+      <slot />
+    </div>
+  </main>
   <Footer />
-
-  <ToastContainer client:only="react" />
-  <ModalStack client:only="react" />
 </Layout>
