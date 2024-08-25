@@ -24,11 +24,11 @@ const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
     </div>
     <div class="space-x-1">
       <span>&copy;{copyDate} <Link href="/">{author.name}</Link>.</span>
-      <Link href="/rss.xml">
+      <Link href="/rss.xml" data-no-swup>
         <i class="iconfont icon-rss"></i>
         <span>RSS</span>
       </Link>
-      <Link href="/sitemap-index.xml">
+      <Link href="/sitemap-index.xml" data-no-swup>
         <i class="iconfont icon-map"></i>
         <span>站点地图</span>
       </Link>

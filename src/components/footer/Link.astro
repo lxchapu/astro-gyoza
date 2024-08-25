@@ -1,9 +1,11 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
   href: string
 }
 
-const { href } = Astro.props
+const { href, ...attrs } = Astro.props
 
 const isExternal = href.startsWith('http')
 ---
@@ -12,5 +14,6 @@ const isExternal = href.startsWith('http')
   class="hover:text-accent"
   href={href}
   target={isExternal ? '_blank' : undefined}
-  rel={isExternal ? 'noopener noreferrer' : undefined}><slot /></a
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+  {...attrs}><slot /></a
 >
