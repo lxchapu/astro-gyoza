@@ -146,6 +146,12 @@ pnpm preview
     "microsoftClarity": {
       "projectId": ""
     }
+  },
+  //如果需要在 Follow(https://follow.is) 中认证订阅源，将 enable 修改为 true，并填写 feedId、userId
+  ”follow“:{
+    ”enable“: false,
+    ”feedId“:”“,
+    ”userId“:”“
   }
 }
 ```

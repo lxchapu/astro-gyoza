@@ -1,10 +1,24 @@
 import type { APIContext } from 'astro'
 import rss from '@astrojs/rss'
-import { site } from '@/config.json'
+import { site, follow } from '@/config.json'
 import { getSortedPosts } from '@/utils/content'
 
 export async function GET(context: APIContext) {
   const sortedPosts = await getSortedPosts()
+  
+  const generateCustomData = () => {
+    let customData = `<language>${site.lang}</language>\n`
+    
+    if (follow?.enable && follow.feedId && follow.userId) {
+      customData += `
+    <follow_challenge>
+      <feedId>${follow.feedId}</feedId>
+      <userId>${follow.userId}</userId>
+    </follow_challenge>`
+    }
+    
+    return customData
+  }
 
   return rss({
     title: site.title,
@@ -16,6 +30,6 @@ export async function GET(context: APIContext) {
       pubDate: post.data.date,
       description: post.data.summary,
     })),
-    customData: `<language>${site.lang}</language>`,
+    customData: generateCustomData(),
   })
 }
