@@ -17,6 +17,7 @@ import { site } from './src/config.json'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import swup from '@swup/astro'
+import { mermaid } from './src/plugins/remarkMermaidPlugin'
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,7 +36,14 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     smartypants: false,
-    remarkPlugins: [remarkMath, remarkDirective, remarkEmbed, remarkSpoiler, remarkReadingTime],
+    remarkPlugins: [
+      remarkMath,
+      remarkDirective,
+      remarkEmbed,
+      remarkSpoiler,
+      remarkReadingTime,
+      mermaid,
+    ],
     rehypePlugins: [
       rehypeHeadingIds,
       rehypeKatex,
