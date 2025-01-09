@@ -27,7 +27,10 @@ import Highlight from '@/components/Highlight.astro'
       <p class="text-xs text-center text-balance text-secondary">
         {hero.yiyan}
       </p>
-      <div class="mt-7 text-xl animate-bounce">
+      <div
+        class="mt-7 text-xl animate-bounce cursor-pointer"
+        onclick="window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })"
+      >
         <i class="iconfont icon-down"></i>
       </div>
     </div>
