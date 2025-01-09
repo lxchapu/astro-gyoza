@@ -25,7 +25,7 @@ function Logo() {
   return (
     <a className="block" href="/" title="Nav to home">
       <img
-        className="size-[40px] select-none object-cover rounded-2xl"
+        className="size-[40px] select-none object-cover rounded-2xl hover:rotate-[360deg] transition-transform duration-500"
         src={author.avatar}
         alt="Site owner avatar"
       />

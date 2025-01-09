@@ -1,0 +1,13 @@
+name: Github pages build
+
+on: [push]
+
+jobs:
+  build-my-page:
+    if: github.repository == 'tecwds/tecwds-pages'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - run: 'hello! this is my test yaml'

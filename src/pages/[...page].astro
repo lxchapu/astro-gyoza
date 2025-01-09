@@ -14,11 +14,15 @@ import Hero from '@/components/hero/Hero.astro'
 export const getStaticPaths = (async () => {
   const sortedPosts = await getSortedPosts()
   const { perPage } = appConfig.posts
-  const totalPage = Math.ceil(sortedPosts.length / perPage)
+  const totalPage = Math.max(1, Math.ceil(sortedPosts.length / perPage))
 
   const paths = Array.from({ length: totalPage }).map((_, i) => {
     const data = sortedPosts.slice(i * perPage, (i + 1) * perPage)
-    const props = { currentPage: i + 1, totalPage, data }
+    const props = {
+      currentPage: i + 1,
+      totalPage,
+      data: data.length > 0 ? data : []
+    }
     const params = {
       page: i === 0 ? undefined : `page/${i + 1}`,
     }

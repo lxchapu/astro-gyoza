@@ -12,11 +12,17 @@ const { posts } = Astro.props
 <div>
   <ul class="-my-4">
     {
-      posts.map((post) => (
-        <li>
-          <PostCard entry={post} />
+      posts.length < 1 ? (
+        <li class="text-center">
+          <p class="text-gray-500">这个作者太懒了，什么都没有写🤪</p>
         </li>
-      ))
+      ) : (
+        posts.map((post) => (
+          <li>
+            <PostCard entry={post} />
+          </li>
+        ))
+      )
     }
   </ul>
 </div>

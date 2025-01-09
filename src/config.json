@@ -1,9 +1,9 @@
 {
   "site": {
     "url": "http://blog.wpaint.top",
-    "title": "云上百宝箱",
+    "title": "有点 AI 困",
     "description": "这里看起来像是一个博客！",
-    "keywords": "云原生,博客,Docker,Kubernetes,Rust,Linux,Deepin,Blog",
+    "keywords": "Rust,Linux,Blog",
     "lang": "zh-CN",
     "favicon": "/favicon.ico",
     "appleTouchIcon": "/favicon.ico"
@@ -16,7 +16,7 @@
   "hero": {
     "name": "tecwds",
     "bio": "这里看起来像是一个博客！",
-    "description": "Docker,Kubernetes,Rust,Linux,Deepin,Blog",
+    "description": "Rust、Blog、Linux、Slepping",
     "socials": [
       {
         "name": "Github",
