@@ -37,7 +37,7 @@ Enjoy it!
 
 ## 📖 Documentation
 
-前往：[Documentation](https://gyoza.lxchapu.com/posts/guide)
+前往：[Documentation](./src/content/posts/guide.md) 或 [在线文档](https://gyoza.lxchapu.com/posts/guide)
 
 ## 🚀 Project Structure
 
@@ -61,6 +61,16 @@ Enjoy it!
 
 网站配置保存在 `config.json` 文件。
 
+## 🚀 Deployment
+
+本项目使用 GitHub Actions 自动部署到 Vercel。你需要配置以下 GitHub Secrets：
+
+- `VERCEL_TOKEN`: Vercel 访问令牌。
+- `VERCEL_ORG_ID`: 你的 Vercel 组织 ID。
+- `VERCEL_PROJECT_ID`: 你在 Vercel 上对应的项目 ID。
+
+详细步骤请参考 [部署文档](./src/content/posts/guide.md#部署)。
+
 ## 🧞 Commands
 
 | Command        | Action                                       |
@@ -70,3 +80,5 @@ Enjoy it!
 | `pnpm build`   | Build your production site to `./dist/`      |
 | `pnpm preview` | Preview your build locally, before deploying |
 | `pnpm format`  | Format code using Prettier                   |
+
+`

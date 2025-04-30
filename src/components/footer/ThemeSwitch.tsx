@@ -1,8 +1,30 @@
-import { themeAtom } from '@/store/theme'
+import { themeAtom, type Theme } from '@/store/theme'
 import { useAtom } from 'jotai'
+import { useEffect } from 'react' // 导入 useEffect
+
+// 更新 Mermaid 主题
+function updateMermaidMedia(theme: Theme): void {
+  const mediaMap = {
+    system: '(prefers-color-scheme: dark)',
+    dark: 'all',
+    light: 'none',
+  }
+
+  // 确保在客户端执行
+  if (typeof document !== 'undefined') {
+    document
+      .querySelectorAll('[id^="mermaid-dark"]')
+      .forEach((el) => el.setAttribute('media', mediaMap[theme] || 'none'))
+  }
+}
 
 export function ThemeSwitch() {
   const [theme, setTheme] = useAtom(themeAtom)
+
+  // 使用 useEffect 在主题变化时更新 Mermaid 主题
+  useEffect(() => {
+    updateMermaidMedia(theme)
+  }, [theme])
 
   const left = { light: 4, system: 36, dark: 68 }[theme]
 
@@ -46,3 +68,4 @@ export function ThemeSwitch() {
     </div>
   )
 }
+

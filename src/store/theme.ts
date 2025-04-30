@@ -1,4 +1,6 @@
 import { getLocalTheme } from '@/utils/theme'
 import { atom } from 'jotai'
 
-export const themeAtom = atom(getLocalTheme())
+export type Theme = 'light' | 'dark' | 'system'
+
+export const themeAtom = atom<Theme>(getLocalTheme())
