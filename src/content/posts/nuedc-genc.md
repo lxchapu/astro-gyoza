@@ -42,6 +42,8 @@ tags: [competition, electricity, nuedc]
 
 上传前记得**pull+merge**,这样上传代码可以避免与队友的代码冲突
 
+[github工作流](https://www.bilibili.com/video/BV19e4y1q7JJ/?spm_id_from=333.337.search-card.all.click&vd_source=0c6556f00d4c6d1a537b6b57612d11a6)
+
 #### 底层软件
 
 外设驱动：PWM ADC 定时器 中断 编码器读取
