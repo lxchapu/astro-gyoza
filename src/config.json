@@ -115,5 +115,10 @@
     "microsoftClarity": {
       "projectId": ""
     }
+  },
+  "follow":{
+    "enable": false,
+    "feedId":"",
+    "userId":""
   }
 }
