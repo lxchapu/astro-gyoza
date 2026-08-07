@@ -136,6 +136,21 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 const var text = "hello world"
 ```
 
+```mermaid
+sequenceDiagram
+    participant Client as 客户端
+    participant Server as 服务器
+
+    Client->>Server: FIN=1, ACK=1, seq=u, ack=v
+    Note right of Client: 客户端发送FIN报文，表示没有数据要发送了
+    Server-->>Client: ACK=1, ack=u+1, seq=v
+    Note left of Server: 服务器确认FIN报文
+    Server->>Client: FIN=1, ACK=1, seq=w, ack=u+1
+    Note left of Server: 服务器发送FIN报文，表示没有数据要发送了
+    Client-->>Server: ACK=1, ack=w+1, seq=u+1
+    Note right of Client: 客户端确认FIN报文
+```
+
 ## KaTeX 公式
 
 使用 `$` 符号包裹公式生成行内公式，例如：$E = mc^2$。
